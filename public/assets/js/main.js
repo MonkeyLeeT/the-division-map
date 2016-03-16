@@ -1,10 +1,9 @@
-var assetsUrl = "file:///Users/michaellynch/Projects/DivisionMap/"
 var mymap = L.map('interactiveMap', {
     center: [0, 0],
     zoom: 0
 });
 
-L.tileLayer(assetsUrl+'/assets/img/map/{z}/{x}/{y}.png', {
+L.tileLayer('/assets/img/map/{z}/{x}/{y}.png', {
     attribution: '',
     maxZoom: 2,
     minZoom: 0,
