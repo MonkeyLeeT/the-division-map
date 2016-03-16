@@ -1,0 +1,12 @@
+body {
+    /* for fixed header*/
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.jumbotron {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+#interactiveMap { height: 400px; }
