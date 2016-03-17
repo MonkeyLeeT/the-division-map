@@ -35,6 +35,7 @@ body {
 
 .leaflet-container {
     background: #19191b;
+    background-image: url("/assets/img/grid.png");
 }
 
 /* Header */
