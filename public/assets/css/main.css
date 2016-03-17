@@ -4,9 +4,53 @@ body {
     padding-bottom: 20px;
 }
 
+/* Map */
+
+#map-container {
+    position: absolute;
+    top: 51px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+#map-container #map-sidebar {
+    background-color: #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    padding: 15px;
+}
+
+#map-container #map-content {
+    position: absolute;
+    left: 300px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.leaflet-container {
+    background: #19191b;
+}
+
+/* Header */
+
+.navbar {
+    background-color: #fff;
+}
+
+.navbar .navbar-brand, .navbar .navbar-nav>li>a {
+    font-weight: 500;
+    color: #563d7c;
+}
+
+/* Other */
+
 .jumbotron {
     padding-top: 18px;
     padding-bottom: 18px;
 }
-
-#interactiveMap { height: 400px; }

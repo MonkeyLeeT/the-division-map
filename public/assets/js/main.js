@@ -1,50 +1,78 @@
-var mymap = L.map('interactiveMap', {
+var theDivisionMap = L.map('map-content', {
     center: [0, 0],
-    zoom: 0
+    zoom: 2
 });
 
 L.tileLayer('/assets/img/map/{z}/{x}/{y}.png', {
     attribution: '',
-    maxZoom: 2,
+    maxZoom: 4,
     minZoom: 0,
     tileSize: 256, // default
-    noWrap: true
-}).addTo(mymap);
+    noWrap: true,
+    reuseTiles: true
+}).addTo(theDivisionMap);
 
 // z = zoom, x = left -> right, y = top -> down
-// 0/0/0
-// 1/0/0, 1/0/1, 1/1/0, 1/1/1
+//   256x256    - 1 images   -  0/0/0
+//   512x512    - 4 images   -  1/0/0, 1/0/1, 1/1/0, 1/1/1
+//   1024x1024  - 16 images  -  2/
+//   2048x2048  - 64 images  -  3/
+//   4096x4096  - 256 images -  4/
 
 
 //
-// Drawing on the map!
+// Ours Special Icons
 //
 
-// var marker = L.marker([51.5, -0.09]).addTo(mymap);
-// var circle = L.circle([51.508, -0.11], 500, {color: 'red',fillColor: '#f03',fillOpacity: 0.5}).addTo(mymap);
-// var polygon = L.polygon([[51.509, -0.08],[51.503, -0.06],[51.51, -0.047]]).addTo(mymap);
+var DivisionIcon = L.Icon.extend({
+    options: {
+        iconSize:     [32, 32],
+        iconAnchor:   [32, 32],
+        popupAnchor:  [0, 0]
+    }
+});
 
-
+var Icons = {
+    Extractions:        new DivisionIcon({iconUrl: 'leaf-green.png'}),
+    SubwayEnterances:   new DivisionIcon({iconUrl: 'leaf-green.png'}),
+    Landmarks:          new DivisionIcon({iconUrl: 'leaf-green.png'}),
+    SafeHouses:         new DivisionIcon({iconUrl: 'leaf-green.png'}),
+    Checkpoints:        new DivisionIcon({iconUrl: 'leaf-green.png'}),
+    Lootable: {
+        DivisionTech:   new DivisionIcon({iconUrl: 'leaf-green.png'}),
+        DarkzoneChests: new DivisionIcon({iconUrl: 'leaf-green.png'}),
+    },
+    Enemy: {
+        Champions:      new DivisionIcon({iconUrl: 'leaf-green.png'}), // Named Bosses
+        Elites:         new DivisionIcon({iconUrl: 'leaf-green.png'}), // Yellow
+        Rares:          new DivisionIcon({iconUrl: 'leaf-green.png'})  // Purple
+    }
+};
 
 //
-// Popups
+// Markers
 //
 
-// marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-// circle.bindPopup("I am a circle.");
-// polygon.bindPopup("I am a polygon.");
-
-
-
-//
-// Events
-//
-
-// mymap.on('click', function(e) {
-//     alert("You clicked the map at " + e.latlng);
+// var marker = L.marker([90, 180]);
+// marker.bindPopup("Division Tech");
+// marker.on('mouseover', function (e) {
+//     this.openPopup();
 // });
+// marker.on('mouseout', function (e) {
+//     this.closePopup();
+// });
+// marker.addTo(theDivisionMap);
 
+//
+// Polygons
+//
 
+var Areas = {
+    dz01: [[0, 0],[40, 0],[0, 80]]
+};
+
+// var polygon = L.polygon(Areas.dz01, {clickable: false, weight: 1, fillOpacity: 0.1});
+// polygon.addTo(theDivisionMap);
 
 //
 // Custom Icons
