@@ -2,6 +2,9 @@ body {
     /* for fixed header*/
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
 }
 
 /* Map */
@@ -36,6 +39,37 @@ body {
 .leaflet-container {
     background: #19191b;
     background-image: url("/assets/img/grid.png");
+}
+
+.leaflet-marker-pane img {
+    -webkit-transition: all 0.2s;
+       -moz-transition: all 0.2s;
+         -o-transition: all 0.2s;
+            transition: all 0.2s;
+}
+.leaflet-marker-pane img:hover {
+    margin-left: -32px !important;
+    margin-top: -32px !important;
+    height: 64px !important;
+    width: 64px !important;
+    border: 6px solid;
+    border-radius: 32px;
+    border-color: rgba(252, 151, 13, 0.2);
+}
+
+.leaflet-popup-content-wrapper {
+  background:rgba(120, 120, 120, 0.2);
+  color:#fff;
+  font-family: 'Dosis', sans-serif;
+  font-size:18px;
+  pointer-events: none;
+  border-radius: 0px;
+}
+.leaflet-popup-content{
+    margin: 5px 10px;
+}
+.leaflet-popup-tip-container, .leaflet-popup-close-button {
+  display: none;
 }
 
 /* Header */
