@@ -1,12 +1,12 @@
 var theDivisionMap = L.map('map-content', {
     center: [-60, 20],
-    zoom: 4
+    zoom: 3
 });
 
 L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
     attribution: '',
     maxZoom: 4,
-    minZoom: 0,
+    minZoom: 2,
     tileSize: 256, // default
     noWrap: true,
     reuseTiles: true
