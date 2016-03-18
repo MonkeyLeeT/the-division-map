@@ -55,6 +55,7 @@ body {
     border: 6px solid;
     border-radius: 32px;
     border-color: rgba(252, 151, 13, 0.2);
+    z-index: 10000 !important;
 }
 
 .leaflet-popup-content-wrapper {
