@@ -3,7 +3,7 @@ var theDivisionMap = L.map('map-content', {
     zoom: 4
 });
 
-L.tileLayer('/assets/img/map/{z}/{x}/{y}.png', {
+L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
     attribution: '',
     maxZoom: 4,
     minZoom: 0,
