@@ -1,11 +1,11 @@
-var theDivisionMap = L.map('map-content', {
-    center: [-60, 20],
-    zoom: 3
-});
 // var theDivisionMap = L.map('map-content', {
-//     center: [-10, 20],
-//     zoom: 4
+//     center: [-60, 20],
+//     zoom: 3
 // });
+var theDivisionMap = L.map('map-content', {
+    center: [50, -10],
+    zoom: 4
+});
 
 L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
     attribution: '',
@@ -66,11 +66,23 @@ var Markers = [
         {x: -75.75,  y: -17.50,  label: "DZ01 West Checkpoint"},
         {x: -62.10,  y: 82.10,   label: "DZ02 East Checkpoint"},
         {x: -61.90,  y: -15.20,  label: "DZ02 West Checkpoint"},
+        {x: 1.9,     y: -53,     label: "DZ03 Northwest Entrance"},
+        {x: 1.9,     y: 67.5,    label: "DZ03 Northeast Entrance"},
+        {x: -25.7,     y: 81.5,  label: "DZ03 Southeast Entrance"},
         {x: -36.80,  y: -40.00,  label: "DZ03 Southwest Checkpoint"},
+        {x: 72.2,    y: -85.7,   label: "DZ06 West Checkpoint"},
+        {x: 67.6,    y: 28.6,    label: "DZ06 East Checkpoint"},
+        {x: 38,      y: 28.2,    label: "DZ05 East Checkpoint"},
+        {x: 38.8,    y: -65.3,   label: "DZ05 West Checkpoint"},
     ]},
     { type: "DZEnterances", locations: [
         {x: -47.00,  y: 82.10,   label: "DZ02 East Entrance"},
         {x: -54.60,  y: -19.00,  label: "DZ02 West Entrance"},
+        {x: -25.6,   y: -50,     label: "DZ03 West Entrance"},
+        {x: 28,      y: -60.8,   label: "DZ03 West Entrance"},
+        {x: -13.3,   y: 81.5,    label: "DZ03 East Entrance"},
+        {x: 28,      y: -60.8,   label: "DZ04 West Entrance"},
+        {x: 59,      y: 28.4,    label: "DZ05 East Entrance"},
     ]},
     { type: "Landmarks", locations: [
         {x: -72.30,  y: 28.00,   label: "Koreatown"},
@@ -81,21 +93,30 @@ var Markers = [
         {x: -41.80,  y: 67.00,   label: "The Library"},
         {x: -13.40,  y: 32.10,   label: "Refueling Station"},
         {x: 8.80,    y: -4.7,    label: "Arch Plaza"},
+        {x: 38.5,    y: -41,     label: "News Chopper Crash"},
+        {x: 42,    y: -23,       label: "Scaffolding Collapse"},
+        {x: 59,   y: 15.0,       label: "The Pit"},
+        {x: 64.1,   y: -16,      label: "Mid Town Music"},
+        {x: 70,   y: 6.5,        label: "Q Building"},
     ]},
     { type: "Extractions", locations: [
         {x: -70.00,  y: 65.00,  label: "Gas Station Extraction"},
         {x: -72.30,  y: -9.50,  label: "Subway Extraction"},
         {x: -51.60,  y: 12.10,  label: "Rooftop Extraction"},
-        {x: -12.80,  y: -6.6,    label: "Bryant Park Extraction"},
+        {x: -12.80,  y: -6.6,   label: "Bryant Park Extraction"},
+        {x: 33,      y: 52.4,   label: ""},
+        {x: 43.3,    y: -5.4,   label: ""},
+        {x: 52.4,    y: -52,    label: ""},
+        {x: 69.2,    y: -27.5,  label: ""},
     ]},
     { type: "SafeHouses", locations: [
         {x: -45.50,  y: 50.00,  label: "DZ02 Safe Room"},
         {x: -35.20,  y: -4.20,  label: "DZ03 Safe Room"},
         {x: 25.9,    y: -1.70,  label: "DZ04 Safe Room"},
+        {x: 54.6,    y: -5.4,   label: "DZ05 Safe Room"},
+        {x: 72.7,    y: -8,     label: "DZ06 Safe Room"},
     ]},
     { type: "Lootable.DivisionTech", locations: [
-        {x: 9.5,    y: 51.8,  label: "Div Tech Room"},
-        {x: 30.9,   y: 26.5,  label: "Div Tech Room"},
         {x: -63,    y: 34,    label: "On Scaffolding"},
         {x: -60.3,  y: 49.6,  label: "Second Floor"},
         {x: -57.0,  y: 49.6,  label: "Second Floor"},
@@ -114,6 +135,29 @@ var Markers = [
         {x: -13.4, y: 30.5,   label: "????"},
         {x: -6,  y: 6.5,      label: "????"},
         {x: 8.80,  y: -4.7,   label: "????"},
+        {x: 8.80,  y: -50,   label: "????"},
+        {x: 15.3,  y: -57,   label: "????"},
+        {x: 9.5,   y: 53.6,  label: "????"},
+        {x: 6.5,   y: 53.6,  label: "????"},
+        {x: 13.5,  y: 68.6,  label: "????"},
+        {x: 17.5,  y: 13,  label: "????"},
+        {x: 29.5,  y: 28,  label: "????"},
+        {x: 31,  y: 29,  label: "????"},
+        {x: 32.5,  y: 28,  label: "????"},
+        {x: 32.5,  y: 25,  label: "????"},
+        {x: 34.5,  y: 34,  label: "????"},
+        {x: 44.9,   y: 15.8,  label: "????"},
+        {x: 52,   y: 9,  label: "????"},
+        {x: 44.5, y: 0.5,  label: "???? - Above Ground"},
+        {x: 42,   y: -2,  label: "???? - Above Ground"},
+        {x: 37.5,    y: -41,     label: "????"},
+        {x: 43.5,    y: -35,     label: "????"},
+        {x: 48,    y: -62,     label: "????"},
+        {x: 53,    y: -42,     label: "????"},
+        {x: 57,    y: -42,     label: "????"},
+        {x: 65.5,    y: -66.5,     label: "????"},
+        {x: 71,    y: -66.5,     label: "????"},
+        {x: 73,    y: -66.5,     label: "????"},
     ]},
 ];
 
