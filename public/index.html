@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Dosis:700,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
@@ -29,26 +30,21 @@
 
     <div id="map-container">
         <div id="map-sidebar">
-            <h4>Filters (Coming Soon)</h4>
-            <div><b>Points of Interest</b></div>
-            <div> - Checkpoints</div>
+            <h4>Map Filters<small>(Click to Toggle)</small></h4>
+            <h5>Points of Interest</h5>
+            <div class="filter-item"><img src="/assets/img/icons/checkpoint.png"/>Checkpoints</div>
             <div> - DZ Entrances</div>
             <div> - Safe Houses</div>
             <div> - Extractions</div>
             <div> - Landmarks</div>
             <div> - Subway Enterances</div>
-            <div><b>Lootables:</b></div>
+            <h5>Lootables:</h5>
             <div> - Division Tech</div>
             <div> - Darkzone Chests</div>
-            <div><b>Enemies:</b></div>
+            <h5>Enemies:</h5>
             <div> - Champions</div>
             <div> - Elites</div>
             <div> - Rares</div>
-            <!-- <h4>Here are some other maps:</h4>
-            <div><a href="https://i.imgur.com/07dQhTj.png">https://i.imgur.com/07dQhTj.png</a></div>
-            <div><a href="http://i.imgur.com/drmJ55q.jpg">http://i.imgur.com/drmJ55q.jpg</a></div>
-            <div><a href="http://i.imgur.com/nABAZnV.png">http://i.imgur.com/nABAZnV.png</a></div>
-            <div><a href="https://gyazo.com/6fb6938f4a5d667e930da7c91703fd6c">Div Tech Map</a></div> -->
         </div>
         <div id="map-content"></div>
     </div>

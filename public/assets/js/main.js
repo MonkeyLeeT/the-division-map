@@ -1,11 +1,13 @@
-// var theDivisionMap = L.map('map-content', {
-//     center: [-60, 20],
-//     zoom: 3
-// });
+var DEBUG_MODE = false;
+
 var theDivisionMap = L.map('map-content', {
-    center: [50, -10],
-    zoom: 4
+    center: [-60, 20],
+    zoom: 3
 });
+// var theDivisionMap = L.map('map-content', {
+//     center: [0, 0],
+//     zoom: 4
+// });
 
 L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
     attribution: '',
@@ -16,16 +18,8 @@ L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
     reuseTiles: true
 }).addTo(theDivisionMap);
 
-// z = zoom, x = left -> right, y = top -> down
-//   256x256    - 1 images   -  0/0/0
-//   512x512    - 4 images   -  1/0/0, 1/0/1, 1/1/0, 1/1/1
-//   1024x1024  - 16 images  -  2/
-//   2048x2048  - 64 images  -  3/
-//   4096x4096  - 256 images -  4/
-
-
 //
-// Ours Special Icons
+// Special Icons
 //
 
 var DivisionIcon = L.Icon.extend({
@@ -38,7 +32,7 @@ var DivisionIcon = L.Icon.extend({
 
 var Icons = {
     'Extractions':        new DivisionIcon({iconUrl: '/assets/img/icons/extraction.png'}),
-    'SubwayEnterances':   new DivisionIcon({iconUrl: 'leaf-green.png'}),
+    'SubwayEnterances':   new DivisionIcon({iconUrl: '/assets/img/icons/subway.png'}),
     'Landmarks':          new DivisionIcon({iconUrl: '/assets/img/icons/landmark-off.png'}),
     'SafeHouses':         new DivisionIcon({iconUrl: '/assets/img/icons/saferoom.png'}),
     'Checkpoints':        new DivisionIcon({iconUrl: '/assets/img/icons/checkpoint.png'}),
@@ -49,7 +43,7 @@ var Icons = {
         'DarkzoneChests': new DivisionIcon({iconUrl: '/assets/img/icons/'}),
     },
     'Enemy': {
-        'Champions':      new DivisionIcon({iconUrl: '/assets/img/icons/'}), // Named Bosses
+        'Champions':      new DivisionIcon({iconUrl: '/assets/img/icons/enemy-named.png'}), // Named Bosses
         'Elites':         new DivisionIcon({iconUrl: '/assets/img/icons/'}), // Yellow
         'Rares':          new DivisionIcon({iconUrl: '/assets/img/icons/'})  // Purple
     }
@@ -61,128 +55,136 @@ var Icons = {
 
 var Markers = [
     { type: "Checkpoints", locations: [
-        {x: -78.32,  y: 32.20,   label: "DZ01 South Checkpoint"},
-        {x: -75.95,  y: 82.70,   label: "DZ01 East Checkpoint"},
-        {x: -75.75,  y: -17.50,  label: "DZ01 West Checkpoint"},
-        {x: -62.10,  y: 82.10,   label: "DZ02 East Checkpoint"},
-        {x: -61.90,  y: -15.20,  label: "DZ02 West Checkpoint"},
-        {x: 1.9,     y: -53,     label: "DZ03 Northwest Entrance"},
-        {x: 1.9,     y: 67.5,    label: "DZ03 Northeast Entrance"},
-        {x: -25.7,     y: 81.5,  label: "DZ03 Southeast Entrance"},
-        {x: -36.80,  y: -40.00,  label: "DZ03 Southwest Checkpoint"},
-        {x: 72.2,    y: -85.7,   label: "DZ06 West Checkpoint"},
-        {x: 67.6,    y: 28.6,    label: "DZ06 East Checkpoint"},
-        {x: 38,      y: 28.2,    label: "DZ05 East Checkpoint"},
-        {x: 38.8,    y: -65.3,   label: "DZ05 West Checkpoint"},
+        {lat: -78.32,  long: 32.20,   label: "DZ01 South Checkpoint"},
+        {lat: -75.95,  long: 82.70,   label: "DZ01 East Checkpoint"},
+        {lat: -75.75,  long: -17.50,  label: "DZ01 West Checkpoint"},
+        {lat: -62.10,  long: 82.10,   label: "DZ02 East Checkpoint"},
+        {lat: -61.90,  long: -15.20,  label: "DZ02 West Checkpoint"},
+        {lat: 1.9,     long: -53,     label: "DZ03 Northwest Entrance"},
+        {lat: 1.9,     long: 67.5,    label: "DZ03 Northeast Entrance"},
+        {lat: -25.7,     long: 81.5,  label: "DZ03 Southeast Entrance"},
+        {lat: -36.80,  long: -40.00,  label: "DZ03 Southwest Checkpoint"},
+        {lat: 72.2,    long: -85.7,   label: "DZ06 West Checkpoint"},
+        {lat: 67.6,    long: 28.6,    label: "DZ06 East Checkpoint"},
+        {lat: 38,      long: 28.2,    label: "DZ05 East Checkpoint"},
+        {lat: 38.8,    long: -65.3,   label: "DZ05 West Checkpoint"},
     ]},
     { type: "DZEnterances", locations: [
-        {x: -47.00,  y: 82.10,   label: "DZ02 East Entrance"},
-        {x: -54.60,  y: -19.00,  label: "DZ02 West Entrance"},
-        {x: -25.6,   y: -50,     label: "DZ03 West Entrance"},
-        {x: 28,      y: -60.8,   label: "DZ03 West Entrance"},
-        {x: -13.3,   y: 81.5,    label: "DZ03 East Entrance"},
-        {x: 28,      y: -60.8,   label: "DZ04 West Entrance"},
-        {x: 59,      y: 28.4,    label: "DZ05 East Entrance"},
+        {lat: -47.00,  long: 82.10,   label: "DZ02 East Entrance"},
+        {lat: -54.60,  long: -19.00,  label: "DZ02 West Entrance"},
+        {lat: -25.6,   long: -50,     label: "DZ03 West Entrance"},
+        {lat: 28,      long: -60.8,   label: "DZ03 West Entrance"},
+        {lat: -13.3,   long: 81.5,    label: "DZ03 East Entrance"},
+        {lat: 28,      long: -60.8,   label: "DZ04 West Entrance"},
+        {lat: 59,      long: 28.4,    label: "DZ05 East Entrance"},
     ]},
     { type: "Landmarks", locations: [
-        {x: -72.30,  y: 28.00,   label: "Koreatown"},
-        {x: -65.10,  y: 32.20,   label: "Blockade"},
-        {x: -66.10,  y: 54.00,   label: "Abandoned Gas Station"},
-        {x: -58.70,  y: 48.00,   label: "Construction Site"},
-        {x: -41.80,  y: 25.30,   label: "Kalkesse Sporting Store"},
-        {x: -41.80,  y: 67.00,   label: "The Library"},
-        {x: -13.40,  y: 32.10,   label: "Refueling Station"},
-        {x: 8.80,    y: -4.7,    label: "Arch Plaza"},
-        {x: 38.5,    y: -41,     label: "News Chopper Crash"},
-        {x: 42,    y: -23,       label: "Scaffolding Collapse"},
-        {x: 59,   y: 15.0,       label: "The Pit"},
-        {x: 64.1,   y: -16,      label: "Mid Town Music"},
-        {x: 70,   y: 6.5,        label: "Q Building"},
+        {lat: -72.30,  long: 28.00,   label: "Koreatown"},
+        {lat: -65.10,  long: 32.20,   label: "Blockade"},
+        {lat: -66.10,  long: 54.00,   label: "Abandoned Gas Station"},
+        {lat: -58.70,  long: 48.00,   label: "Construction Site"},
+        {lat: -41.80,  long: 25.30,   label: "Kalkesse Sporting Store"},
+        {lat: -41.80,  long: 67.00,   label: "The Library"},
+        {lat: -13.40,  long: 32.10,   label: "Refueling Station"},
+        {lat: 8.80,    long: -4.7,    label: "Arch Plaza"},
+        {lat: 38.5,    long: -41,     label: "News Chopper Crash"},
+        {lat: 42,      long: -23,       label: "Scaffolding Collapse"},
+        {lat: 59,      long: 15.0,       label: "The Pit"},
+        {lat: 64.1,    long: -16,      label: "Mid Town Music"},
+        {lat: 70,      long: 6.5,        label: "Q Building"},
     ]},
     { type: "Extractions", locations: [
-        {x: -70.00,  y: 65.00,  label: "Gas Station Extraction"},
-        {x: -72.30,  y: -9.50,  label: "Subway Extraction"},
-        {x: -51.60,  y: 12.10,  label: "Rooftop Extraction"},
-        {x: -12.80,  y: -6.6,   label: "Bryant Park Extraction"},
-        {x: 33,      y: 52.4,   label: ""},
-        {x: 43.3,    y: -5.4,   label: ""},
-        {x: 52.4,    y: -52,    label: ""},
-        {x: 69.2,    y: -27.5,  label: ""},
+        {lat: -70.00,  long: 65.00,  label: "Gas Station Extraction"},
+        {lat: -72.30,  long: -9.50,  label: "Subway Extraction"},
+        {lat: -51.60,  long: 12.10,  label: "Rooftop Extraction"},
+        {lat: -12.80,  long: -6.6,   label: "Bryant Park Extraction"},
+        {lat: 33,      long: 52.4,   label: ""},
+        {lat: 43.3,    long: -5.4,   label: ""},
+        {lat: 52.4,    long: -52,    label: ""},
+        {lat: 69.2,    long: -27.5,  label: ""},
     ]},
     { type: "SafeHouses", locations: [
-        {x: -45.50,  y: 50.00,  label: "DZ02 Safe Room"},
-        {x: -35.20,  y: -4.20,  label: "DZ03 Safe Room"},
-        {x: 25.9,    y: -1.70,  label: "DZ04 Safe Room"},
-        {x: 54.6,    y: -5.4,   label: "DZ05 Safe Room"},
-        {x: 72.7,    y: -8,     label: "DZ06 Safe Room"},
+        {lat: -45.50,  long: 50.00,  label: "DZ02 Safe Room"},
+        {lat: -35.20,  long: -4.20,  label: "DZ03 Safe Room"},
+        {lat: 25.9,    long: -1.70,  label: "DZ04 Safe Room"},
+        {lat: 54.6,    long: -5.4,   label: "DZ05 Safe Room"},
+        {lat: 72.7,    long: -8,     label: "DZ06 Safe Room"},
     ]},
     { type: "Lootable.DivisionTech", locations: [
-        {x: -63,    y: 34,    label: "On Scaffolding"},
-        {x: -60.3,  y: 49.6,  label: "Second Floor"},
-        {x: -57.0,  y: 49.6,  label: "Second Floor"},
-        {x: -58.7,  y: 48.0,  label: "Third Floor"},
-        {x: -53.5,  y: 77.0,  label: "????"},
-        {x: -51.5,  y: 77.0,  label: "????"},
-        {x: -53.5,  y: 74.0,  label: "????"},
-        {x: -41.0,  y: 63.0,  label: "On Ground"},
-        {x: -39.0,  y: 28,    label: "Third Floor: Behind Christmas Tree"},
-        {x: -44.3,  y: 28,    label: "Second Floor: Billards Room"},
-        {x: -44.7,  y: 20,    label: "Third Floor: On Scaffolding"},
-        {x: -43.3,  y: 23,    label: "First Floor"},
-        {x: -30,  y: 12.5,    label: "????"},
-        {x: -30,  y: 2,       label: "????"},
-        {x: -24,  y: 50,      label: "????"},
-        {x: -13.4, y: 30.5,   label: "????"},
-        {x: -6,  y: 6.5,      label: "????"},
-        {x: 8.80,  y: -4.7,   label: "????"},
-        {x: 8.80,  y: -50,   label: "????"},
-        {x: 15.3,  y: -57,   label: "????"},
-        {x: 9.5,   y: 53.6,  label: "????"},
-        {x: 6.5,   y: 53.6,  label: "????"},
-        {x: 13.5,  y: 68.6,  label: "????"},
-        {x: 17.5,  y: 13,  label: "????"},
-        {x: 29.5,  y: 28,  label: "????"},
-        {x: 31,  y: 29,  label: "????"},
-        {x: 32.5,  y: 28,  label: "????"},
-        {x: 32.5,  y: 25,  label: "????"},
-        {x: 34.5,  y: 34,  label: "????"},
-        {x: 44.9,   y: 15.8,  label: "????"},
-        {x: 52,   y: 9,  label: "????"},
-        {x: 44.5, y: 0.5,  label: "???? - Above Ground"},
-        {x: 42,   y: -2,  label: "???? - Above Ground"},
-        {x: 37.5,    y: -41,     label: "????"},
-        {x: 43.5,    y: -35,     label: "????"},
-        {x: 48,    y: -62,     label: "????"},
-        {x: 53,    y: -42,     label: "????"},
-        {x: 57,    y: -42,     label: "????"},
-        {x: 65.5,    y: -66.5,     label: "????"},
-        {x: 71,    y: -66.5,     label: "????"},
-        {x: 73,    y: -66.5,     label: "????"},
+        {lat: -63,    long: 34,    label: "On Scaffolding"},
+        {lat: -60.3,  long: 49.6,  label: "Second Floor"},
+        {lat: -57.0,  long: 49.6,  label: "Second Floor"},
+        {lat: -58.7,  long: 48.0,  label: "Third Floor"},
+        {lat: -53.5,  long: 77.0,  label: "????"},
+        {lat: -51.5,  long: 77.0,  label: "????"},
+        {lat: -53.5,  long: 74.0,  label: "????"},
+        {lat: -41.0,  long: 63.0,  label: "On Ground"},
+        {lat: -39.0,  long: 28,    label: "Third Floor: Behind Christmas Tree"},
+        {lat: -44.3,  long: 28,    label: "Second Floor: Billards Room"},
+        {lat: -44.7,  long: 20,    label: "Third Floor: On Scaffolding"},
+        {lat: -43.3,  long: 23,    label: "First Floor"},
+        {lat: -30,    long: 12.5,    label: "????"},
+        {lat: -30,    long: 2,       label: "????"},
+        {lat: -24,    long: 50,      label: "????"},
+        {lat: -13.4,  long: 30.5,   label: "????"},
+        {lat: -6,     long: 6.5,      label: "????"},
+        {lat: 8.80,   long: -4.7,   label: "????"},
+        {lat: 8.80,   long: -50,   label: "????"},
+        {lat: 15.3,   long: -57,   label: "????"},
+        {lat: 9.5,    long: 53.6,  label: "????"},
+        {lat: 6.5,    long: 53.6,  label: "????"},
+        {lat: 13.5,   long: 68.6,  label: "????"},
+        {lat: 17.5,   long: 17,  label: "By the truck in the middle"},
+        {lat: 29.5,   long: 28,  label: "????"},
+        {lat: 31,     long: 29,  label: "????"},
+        {lat: 32.5,   long: 28,  label: "????"},
+        {lat: 32.5,   long: 25,  label: "????"},
+        {lat: 34.5,   long: 34,  label: "????"},
+        {lat: 44.9,   long: 15.8,  label: "????"},
+        {lat: 52,     long: 9,  label: "????"},
+        {lat: 44.5,   long: 0.5,  label: "???? - Above Ground"},
+        {lat: 42,     long: -2,  label: "???? - Above Ground"},
+        {lat: 37.5,   long: -41,     label: "????"},
+        {lat: 43.5,   long: -35,     label: "????"},
+        {lat: 48,     long: -62,     label: "????"},
+        {lat: 53,     long: -42,     label: "????"},
+        {lat: 57,     long: -42,     label: "????"},
+        {lat: 65.5,   long: -66.5,     label: "????"},
+        {lat: 71,     long: -66.5,     label: "????"},
+        {lat: 73,     long: -66.5,     label: "????"},
     ]},
+    { type: "SubwayEnterances", locations: [
+        {lat: -12,  long: 0,    label: ""},
+    ]},
+    { type: "Enemy.Champions", locations: [
+        {lat: 17.5,  long: 19,     label: "<b>Named Bosses:</b><br/>Boomerang<br/>Hawkeye"},
+        {lat: -11.5,  long: 30.5,  label: "<b>Named Bosses:</b><br/>Short Fuse"}, // Refueling Station
+        {lat: -12.8,  long: -4,    label: "<b>Named Bosses:</b><br/>Animal"}, // Bryant Park
+        {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"},
+        {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady"},
+        {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"},
+    ]},
+
 ];
 
 _.each(Markers, function(marker){
     var icon = _.get(Icons, marker.type);
     _.each(marker.locations, function(loc){
-        var marker = L.marker([loc.x, loc.y], {icon: icon});
-        marker.bindPopup(loc.label);
-        marker.on('mouseover', function (e) {
-            this.openPopup();
-        });
-        marker.on('mouseout', function (e) {
-            this.closePopup();
-        });
-        marker.addTo(theDivisionMap);
+        var marker = L.marker([loc.lat, loc.long], {icon: icon});
+
+        var popup = loc.label;
+        if(DEBUG_MODE){
+            popup = loc.label + "<br/><br/><i>lat:" + loc.lat + "   long:"+loc.long+"</i>";
+        }
+        if(popup !== ""){
+            marker.bindPopup(popup);
+            marker.on('mouseover', function (e) {
+                this.openPopup();
+            });
+            marker.on('mouseout', function (e) {
+                this.closePopup();
+            });
+            marker.addTo(theDivisionMap);
+        }
     });
 });
-
-//
-// Polygons
-//
-
-var Areas = {
-    dz01: [[0, 0],[40, 0],[0, 80]]
-};
-
-// var polygon = L.polygon(Areas.dz01, {clickable: false, weight: 1, fillOpacity: 0.1});
-// polygon.addTo(theDivisionMap);
