@@ -40,12 +40,12 @@ var Icons = {
     'Containment':        new DivisionIcon({iconUrl: '/assets/img/icons/containment.png'}),
     'Lootable': {
         'DivisionTech':   new DivisionIcon({iconUrl: '/assets/img/icons/division-tech.png'}),
-        'DarkzoneChests': new DivisionIcon({iconUrl: '/assets/img/icons/'}),
+        'DarkzoneChests': new DivisionIcon({iconUrl: '/assets/img/icons/darkzone-chest.png'}),
     },
     'Enemy': {
         'Champions':      new DivisionIcon({iconUrl: '/assets/img/icons/enemy-named.png'}), // Named Bosses
-        'Elites':         new DivisionIcon({iconUrl: '/assets/img/icons/'}), // Yellow
-        'Rares':          new DivisionIcon({iconUrl: '/assets/img/icons/'})  // Purple
+        'Elites':         new DivisionIcon({iconUrl: '/assets/img/icons/enemy-champion.png'}), // Yellow
+        'Rares':          new DivisionIcon({iconUrl: '/assets/img/icons/enemy-rare.png'})  // Purple
     }
 };
 

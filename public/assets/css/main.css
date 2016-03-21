@@ -30,9 +30,9 @@ body {
     color: #fff;
     padding: 20px;
     border-top: 2px #6ec449 solid;
-    border-right: 2px #444 solid;
+    border-right: 2px #555 solid;
     border-bottom: 2px #6ec449 solid;
-    border-left: 2px #444 solid;
+    border-left: 2px #555 solid;
     background-color: rgba(60,60,60,0.9);
 }
 
@@ -51,10 +51,20 @@ body {
     color: orange;
 }
 
-#map-sidebar .filter-item {}
-#map-sidebar .filter-item img { width: 32px; height: 32px; }
-#map-sidebar .filter-item small { color: #999; }
+#map-sidebar .filter-item { line-height: 24px; }
+#map-sidebar .filter-item img { width: 24px; height: 24px; }
+#map-sidebar .filter-item small { color: #999; font-style: italic; }
 
+#map-sidebar #map-sidebar-footer {
+    border-top: 1px solid #999;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+#map-sidebar #map-sidebar-footer a {
+    color: #999;
+}
 
 /* Map Content */
 
@@ -106,12 +116,44 @@ body {
 /* Header */
 
 .navbar {
-    background-color: #fff;
+    background-color: rgba(60,60,60,1);
+    border-bottom: 2px #555 solid;
+}
+
+.navbar-right {
+    margin-right: 0px;
 }
 
 .navbar .navbar-brand, .navbar .navbar-nav>li>a {
     font-weight: 500;
-    color: #563d7c;
+    color: #fff;
+}
+
+a.block-link, .navbar .navbar-nav > li > a.block-link {
+    background: rgba(255,255,255,0.2);
+    text-align: center;
+    padding: 4px 20px;
+    border-bottom: 2px transparent solid;
+    color: #fff;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+a.block-link:hover, .navbar .navbar-nav > li > a.block-link:hover {
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+}
+.navbar .navbar-nav > li > a.block-link {
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 120px;
+}
+a.block-link.active, .navbar .navbar-nav > li > a.block-link.active {
+    border-bottom: 2px orange solid;
 }
 
 /* Other */
