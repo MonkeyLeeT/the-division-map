@@ -21,25 +21,19 @@ body {
 /* Map Sidebar */
 
 #map-container #map-sidebar {
-    background-color: #eee;
     position: absolute;
     top: 20px;
     right: 20px;
     width: 300px;
     z-index: 100000;
     color: #fff;
-    padding: 20px;
-    border-top: 2px #6ec449 solid;
-    border-right: 2px #555 solid;
-    border-bottom: 2px #6ec449 solid;
-    border-left: 2px #555 solid;
-    background-color: rgba(60,60,60,0.9);
 }
 
 #map-sidebar h4 {
     font-weight: 300;
     font-size: 20px;
     margin-top: 0px;
+    color: orange;
 }
 #map-sidebar h4 small {
     float:right;
@@ -55,10 +49,20 @@ body {
 #map-sidebar .filter-item img { width: 24px; height: 24px; }
 #map-sidebar .filter-item small { color: #999; font-style: italic; }
 
+#map-sidebar .sidebar-component {
+    /*border-bottom: 1px solid #999;
+    margin-bottom: 15px;
+    padding-bottom: 15px;*/
+    padding: 20px;
+    margin-bottom: 20px;
+    border-top: 2px #6ec449 solid;
+    border-right: 2px #555 solid;
+    border-bottom: 2px #6ec449 solid;
+    border-left: 2px #555 solid;
+    background-color: rgba(60,60,60,0.9);
+}
+
 #map-sidebar #map-sidebar-footer {
-    border-top: 1px solid #999;
-    margin-top: 15px;
-    padding-top: 15px;
     font-size: 12px;
     text-align: center;
 }

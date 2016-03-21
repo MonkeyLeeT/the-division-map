@@ -39,25 +39,35 @@
 
     <div id="map-container">
         <div id="map-sidebar">
-            <h4>Map Filters<small>(Click to Toggle)</small></h4>
-            <h5>Points of Interest</h5>
-            <div class="filter-item"><img src="/assets/img/icons/checkpoint.png"/> Checkpoints</div>
-            <div class="filter-item"><img src="/assets/img/icons/dz-enterance.png"/> DZ Entrances</div>
-            <div class="filter-item"><img src="/assets/img/icons/saferoom.png"/> Safe Houses</div>
-            <div class="filter-item"><img src="/assets/img/icons/extraction.png"/> Extractions</div>
-            <div class="filter-item"><img src="/assets/img/icons/landmark-off.png"/> Landmarks</div>
-            <div class="filter-item"><img src="/assets/img/icons/subway.png"/> Subway Enterances</div>
-            <div class="filter-item"><img src="/assets/img/icons/containment-zone.png"/> Containment Zone <small>(Coming Soon)</small></div>
-            <h5>Lootables:</h5>
-            <div class="filter-item"><img src="/assets/img/icons/division-tech.png"/> Division Tech</div>
-            <div class="filter-item"><img src="/assets/img/icons/darkzone-chest.png"/> Darkzone Chests <small>(Coming Soon)</small></div>
-            <h5>Enemies:</h5>
-            <div class="filter-item"><img src="/assets/img/icons/enemy-named.png"/> Champions</div>
-            <div class="filter-item"><img src="/assets/img/icons/enemy-champion.png"/> Elites <small>(Coming Soon)</small></div>
-            <div class="filter-item"><img src="/assets/img/icons/enemy-rare.png"/> Rares <small>(Coming Soon)</small></div>
-            <br><a class="block-link" style="display:block;">Hide / Show All Filters</a>
-            <div id="map-sidebar-footer">
-                <div>Created By <a href="#">Michael Lynch</a></div>
+            <div class="sidebar-component">
+                <h4>Map Filters<small>(Click to Toggle)</small></h4>
+                <!-- <h5>Points of Interest</h5> -->
+                <div class="filter-item"><img src="/assets/img/icons/checkpoint.png"/> Checkpoints</div>
+                <div class="filter-item"><img src="/assets/img/icons/dz-enterance.png"/> DZ Entrances</div>
+                <div class="filter-item"><img src="/assets/img/icons/saferoom.png"/> Safe Houses</div>
+                <div class="filter-item"><img src="/assets/img/icons/extraction.png"/> Extractions</div>
+                <div class="filter-item"><img src="/assets/img/icons/landmark-off.png"/> Landmarks</div>
+                <div class="filter-item"><img src="/assets/img/icons/subway.png"/> Subway Enterances</div>
+                <div class="filter-item"><img src="/assets/img/icons/containment-zone.png"/> Containment Zone <small>(Coming Soon)</small></div>
+                <!-- <h5>Lootables:</h5> -->
+                <div class="filter-item"><img src="/assets/img/icons/division-tech.png"/> Division Tech</div>
+                <div class="filter-item"><img src="/assets/img/icons/darkzone-chest.png"/> Darkzone Chests <small>(Coming Soon)</small></div>
+                <!-- <h5>Enemies:</h5> -->
+                <div class="filter-item"><img src="/assets/img/icons/enemy-named.png"/> Enemy Champions</div>
+                <!-- <div class="filter-item"><img src="/assets/img/icons/enemy-champion.png"/> Elites <small>(Coming Soon)</small></div> -->
+                <!-- <div class="filter-item"><img src="/assets/img/icons/enemy-rare.png"/> Rares <small>(Coming Soon)</small></div> -->
+                <br><a class="block-link" style="display:block;">Hide / Show All Filters</a>
+            </div>
+
+            <div class="sidebar-component">
+                <h4>Custom Map Paths<small>Coming Soon</small></h4>
+                <a class="block-link" style="display:block;">Create & Share Path</a>
+            </div>
+
+            <div class="sidebar-component">
+                <div id="map-sidebar-footer">
+                    <div>Created By <a href="#">Michael Lynch</a></div>
+                </div>
             </div>
         </div>
         <div id="map-content"></div>
@@ -90,5 +100,16 @@
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.js"></script>
     <script src="/assets/js/main.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75367838-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>
