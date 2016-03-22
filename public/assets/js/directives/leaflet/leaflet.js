@@ -198,7 +198,7 @@
                 {lat: 62.3,     long: -19.4,     label: ""},
             ]},
             { type: "SubwayEnterances", locations: [
-                {lat: -12,  long: 0,    label: ""},
+                // {lat: -12,  long: 0,    label: ""},
             ]},
             { type: "Enemy.Champions", locations: [
                 {lat: 17.5,  long: 19,     label: "<b>Named Bosses:</b><br/>Boomerang<br/>Hawkeye"},
