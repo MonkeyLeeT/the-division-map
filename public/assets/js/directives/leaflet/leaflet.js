@@ -17,8 +17,8 @@
     function MapLink(scope, elem, attrs){
         var DEBUG_MODE = false;
 
-        var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 });
-        // var theDivisionMap = L.map('map-content', { center: [0, 0], zoom: 4 });
+        // var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 });
+        var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 4 });
 
         L.control.mousePosition().addTo(theDivisionMap);
         L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
@@ -163,6 +163,18 @@
                 {lat: 65.5,   long: -66.5,     label: "????"},
                 {lat: 71,     long: -66.5,     label: "????"},
                 {lat: 73,     long: -66.5,     label: "????"},
+                {lat: -74.8,     long: 54,     label: "Behind Cars"},
+                {lat: -70.3,     long: -15.2,     label: "By Bench"},
+            ]},
+            { type: "Lootable.DarkzoneChests", locations: [
+                {lat: -78.2,     long: 52.7,     label: "End of Alley"},
+                {lat: -65.15,     long: 29.6,     label: "Middle of blockade against building"},
+                {lat: -59.75,     long: 47.9,     label: "Middle of Building on 1st Floor"},
+                {lat: -43,     long: 25.2,     label: "Middle of Building on 2nd Floor"},
+                {lat: -42,     long: 63,     label: "Middle of area against building"},
+                {lat: -69.2,     long: -10.8,     label: "Against Wall in Subway"},
+                {lat: -63.1,     long: -6.7,     label: "Back of Subway"},
+                {lat: -46.6,     long: -29.5,     label: "End of Road"},
             ]},
             { type: "SubwayEnterances", locations: [
                 {lat: -12,  long: 0,    label: ""},
@@ -174,6 +186,13 @@
                 {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"},
                 {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady"},
                 {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"},
+                {lat: -77,     long: 52.7,       label: "<b>Named Bosses:</b>"},
+                {lat: -66.9,     long: -6.7,     label: "<b>(Subway) Named Bosses:</b>"},
+                {lat: -66.9,     long: 31.8,     label: "<b>Named Bosses:</b>"},
+                {lat: -57.2,     long: 46.5,     label: "<b>Named Bosses:</b>"},
+                {lat: -46.86,     long: -23,     label: "<b>Named Bosses:</b>"},
+                {lat: -41.7,     long: 27.9,     label: "<b>Named Bosses:</b>"},
+                {lat: -42,     long: 60.8,     label: "<b>Named Bosses:</b>"},
             ]}
         ];
 
