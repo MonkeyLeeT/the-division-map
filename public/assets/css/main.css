@@ -224,3 +224,11 @@ a.block-link.active, .navbar .navbar-nav > li > a.block-link.active {
     padding-top: 18px;
     padding-bottom: 18px;
 }
+
+.blog-footer {
+    padding: 40px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
