@@ -6,7 +6,7 @@
 
     angular.module('theDivisionAgent')
         .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-            $urlRouterProvider.otherwise('/map');
+            $urlRouterProvider.otherwise('/home');
             $locationProvider.html5Mode(true).hashPrefix('*');
             $stateProvider
                 .state('map', {
