@@ -34,7 +34,7 @@ body {
     top: 20px;
     right: 20px;
     width: 300px;
-    z-index: 100000;
+    z-index: 1039;
     color: #fff;
 }
 
@@ -172,6 +172,50 @@ a.block-link:hover, .navbar .navbar-nav > li > a.block-link:hover {
 }
 a.block-link.active, .navbar .navbar-nav > li > a.block-link.active {
     border-bottom: 2px orange solid;
+}
+
+/* Modal */
+
+.modal-content {
+    background-color: rgba(200,200,200,0.7);
+    color: white;
+    border-radius: 0px;
+}
+.modal-header {
+    background-color: rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.modal-footer {
+    /*background-color: rgba(255,255,255,0.2);*/
+    /*border-top: 1px solid rgba(255,255,255,0.5);*/
+    border-top: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.modal-close {
+    float: right;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+.modal-close:hover {
+    text-decoration: none;
+}
+
+/* Buttons */
+
+.btn-div-secondary {
+    color: white;
+    background-color: #FF7606;
+    text-transform: uppercase;
+    border-radius: 0px;
+    padding: 4px 24px;
+    font-size: 16px;
 }
 
 /* Other */

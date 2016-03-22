@@ -7,7 +7,8 @@
     "lodash": "~4.6.1",
     "angular": "~1.4.9",
     "angular-ui-router": "ui-router#~0.2.18",
-    "angular-google-gapi": "1.0.0-beta.1"
+    "angular-google-gapi": "1.0.0-beta.1",
+    "angular-bootstrap": "~1.2.5"
   },
   "private": true
 }

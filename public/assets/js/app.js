@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    angular.module('theDivisionAgent', ['ui.router', 'angular-google-gapi']);
+    angular.module('theDivisionAgent', ['ui.router', 'angular-google-gapi', 'ui.bootstrap']);
 
     angular.module('theDivisionAgent')
         .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
