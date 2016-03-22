@@ -17,8 +17,8 @@
     function MapLink(scope, elem, attrs){
         var DEBUG_MODE = false;
 
-        // var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 });
-        var theDivisionMap = L.map(attrs.id, { center: [40, 0], zoom: 4 });
+        var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 });
+        // var theDivisionMap = L.map(attrs.id, { center: [40, 0], zoom: 4 });
 
         L.control.mousePosition().addTo(theDivisionMap);
         L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
