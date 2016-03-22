@@ -17,8 +17,8 @@
     function MapLink(scope, elem, attrs){
         var DEBUG_MODE = false;
 
-        var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 });
-        // var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 4 });
+        // var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 });
+        var theDivisionMap = L.map(attrs.id, { center: [40, 0], zoom: 4 });
 
         L.control.mousePosition().addTo(theDivisionMap);
         L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
@@ -145,7 +145,7 @@
                 {lat: 9.5,    long: 53.6,  label: "????"},
                 {lat: 6.5,    long: 53.6,  label: "????"},
                 {lat: 13.5,   long: 68.6,  label: "????"},
-                {lat: 17.5,   long: 17,  label: "By the truck in the middle"},
+                {lat: 19.6,   long: 16,  label: "By the truck in the middle"},
                 {lat: 29.5,   long: 28,  label: "????"},
                 {lat: 31,     long: 29,  label: "????"},
                 {lat: 32.5,   long: 28,  label: "????"},
@@ -165,6 +165,7 @@
                 {lat: 73,     long: -66.5,     label: "????"},
                 {lat: -74.8,     long: 54,     label: "Behind Cars"},
                 {lat: -70.3,     long: -15.2,     label: "By Bench"},
+                {lat: 50.5,     long: -31.1,     label: "????"},
             ]},
             { type: "Lootable.DarkzoneChests", locations: [
                 {lat: -78.2,     long: 52.7,     label: "End of Alley"},
@@ -175,6 +176,10 @@
                 {lat: -69.2,     long: -10.8,     label: "Against Wall in Subway"},
                 {lat: -63.1,     long: -6.7,     label: "Back of Subway"},
                 {lat: -46.6,     long: -29.5,     label: "End of Road"},
+                {lat: 18.9,     long: 18,     label: "Back of truck"},
+                {lat: 27,     long: 69,     label: ""},
+                {lat: -6,     long: 12.5,     label: "In Subway"},
+                {lat: -13.25,     long: -22.4,     label: "In Subway"},
             ]},
             { type: "SubwayEnterances", locations: [
                 {lat: -12,  long: 0,    label: ""},
@@ -193,6 +198,9 @@
                 {lat: -46.86,     long: -23,     label: "<b>Named Bosses:</b>"},
                 {lat: -41.7,     long: 27.9,     label: "<b>Named Bosses:</b>"},
                 {lat: -42,     long: 60.8,     label: "<b>Named Bosses:</b>"},
+                {lat: -13,     long: -25.3,     label: "<b>(Subway) Named Bosses:</b>"},
+                {lat: 30,     long: -50,     label: "<b>Named Bosses:</b>"},
+                {lat: 39.2,     long: -23.2,     label: "<b>Named Bosses:</b>"},
             ]}
         ];
 
@@ -208,8 +216,8 @@
                     loc.marker.on('mouseout', function (e) {
                         this.closePopup();
                     });
-                    loc.marker.addTo(theDivisionMap);
                 }
+                loc.marker.addTo(theDivisionMap);
             });
         });
 
