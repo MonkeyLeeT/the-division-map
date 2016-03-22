@@ -14,7 +14,7 @@
             { enabled: true, markerType: 'SafeHouses', icon: "/assets/img/icons/saferoom.png",         name: "Safe Houses" },
             { enabled: true, markerType: 'Extractions', icon: "/assets/img/icons/extraction.png",       name: "Extractions" },
             { enabled: true, markerType: 'Landmarks', icon: "/assets/img/icons/landmark-off.png",     name: "Landmarks" },
-            { enabled: true, markerType: 'SubwayEntrances', icon: "/assets/img/icons/subway.png",           name: "Subway Enterances" },
+            { enabled: true, markerType: 'SubwayEnterances', icon: "/assets/img/icons/subway.png",           name: "Subway Enterances" },
             { enabled: true, markerType: null, icon: "/assets/img/icons/containment-zone.png", name: "Containment Zone", comingSoon: true },
             { enabled: true, markerType: 'Lootable.DivisionTech', icon: "/assets/img/icons/division-tech.png",    name: "Division Tech" },
             { enabled: true, markerType: null, icon: "/assets/img/icons/darkzone-chest.png",   name: "Darkzone Chests", comingSoon: true },
@@ -31,7 +31,8 @@
             var status = !_.find(vm.filters, {enabled: true});
             _.each(vm.filters, function(filter){
                 filter.enabled = status;
-                $rootScope.$broadcast('map-switch-filter', filter.markerType, filter.enabled);
+                if( filter.markerType !== null )
+                    $rootScope.$broadcast('map-switch-filter', filter.markerType, filter.enabled);
             });
         };
 

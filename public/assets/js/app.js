@@ -2,7 +2,7 @@
 (function() {
     'use strict';
 
-    angular.module('theDivisionAgent', ['ui.router']);
+    angular.module('theDivisionAgent', ['ui.router', 'angular-google-gapi']);
 
     angular.module('theDivisionAgent')
         .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -23,10 +23,15 @@
 
 
     angular.module('theDivisionAgent')
-        .run(['$rootScope', '$state', '$stateParams',
-            function ($rootScope, $state, $stateParams) {
+        .run(['$rootScope', '$state', '$stateParams', 'GoogleURLShortener',
+            function ($rootScope, $state, $stateParams, GoogleURLShortener) {
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
+
+                GoogleURLShortener.init('AIzaSyDdlHtYINPk3rVMKAlrQHj_IFgKdQcvU-M');
+                // GoogleURLShortener.shorten("http://www.thedivisionagent.com/map").then(function(shortUrl){
+                //     console.log("shortUrl", shortUrl);
+                // });
             }
         ]);
 

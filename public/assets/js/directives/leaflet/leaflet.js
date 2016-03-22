@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('theDivisionAgent')
-        .directive('map', MapDirective);
+        .directive('leaflet', MapDirective);
 
     function MapDirective(){
         return {
@@ -17,7 +17,7 @@
     function MapLink(scope, elem, attrs){
         var DEBUG_MODE = false;
 
-        var theDivisionMap = L.map(attrs.id, { center: [-60, 20], zoom: 3 });
+        var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 });
         // var theDivisionMap = L.map('map-content', { center: [0, 0], zoom: 4 });
 
         L.control.mousePosition().addTo(theDivisionMap);
