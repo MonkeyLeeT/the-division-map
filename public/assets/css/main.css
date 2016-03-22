@@ -18,6 +18,15 @@ body {
     overflow: hidden;
 }
 
+.leaflet-container .leaflet-control-mouseposition {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px #bbb;
+    padding: 0 5px;
+    margin:0;
+    color: #333;
+    font: 11px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
 /* Map Sidebar */
 
 #map-container #map-sidebar {
@@ -45,9 +54,14 @@ body {
     color: orange;
 }
 
-#map-sidebar .filter-item { line-height: 24px; }
+#map-sidebar .filter-item { line-height: 24px; cursor: pointer; }
 #map-sidebar .filter-item img { width: 24px; height: 24px; }
 #map-sidebar .filter-item small { color: #999; font-style: italic; }
+
+#map-sidebar .filter-item.disabled {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
 
 #map-sidebar .sidebar-component {
     /*border-bottom: 1px solid #999;
