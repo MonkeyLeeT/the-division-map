@@ -17,7 +17,7 @@
             { enabled: true, markerType: 'SubwayEnterances', icon: "/assets/img/icons/subway.png",           name: "Subway Enterances" },
             { enabled: true, markerType: null, icon: "/assets/img/icons/containment-zone.png", name: "Containment Zone", comingSoon: true },
             { enabled: true, markerType: 'Lootable.DivisionTech', icon: "/assets/img/icons/division-tech.png",    name: "Division Tech" },
-            { enabled: true, markerType: null, icon: "/assets/img/icons/darkzone-chest.png",   name: "Darkzone Chests", comingSoon: true },
+            { enabled: true, markerType: "Lootable.DarkzoneChests", icon: "/assets/img/icons/darkzone-chest.png",   name: "Darkzone Chests"},
             { enabled: true, markerType: 'Enemy.Champions', icon: "/assets/img/icons/enemy-named.png",      name: "Enemy Champions" },
         ];
 
