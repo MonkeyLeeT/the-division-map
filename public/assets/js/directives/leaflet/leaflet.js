@@ -71,7 +71,7 @@
                         {lat: 1.9,     long: 67.5,    label: "DZ03 Northeast Entrance"},
                         {lat: -25.7,   long: 81.5,    label: "DZ03 Southeast Entrance"},
                         {lat: -36.80,  long: -40.00,  label: "DZ03 Southwest Checkpoint"},
-                        {lat: 72.2,    long: -85.7,   label: "DZ06 West Checkpoint"},
+                        {lat: 67.7,    long: -80,   label: "DZ06 West Checkpoint"},
                         {lat: 67.6,    long: 28.6,    label: "DZ06 East Checkpoint"},
                         {lat: 38,      long: 28.2,    label: "DZ05 East Checkpoint"},
                         {lat: 38.8,    long: -65.3,   label: "DZ05 West Checkpoint"},
@@ -79,7 +79,7 @@
                     { type: "DZEnterances", locations: [
                         {lat: -47.00,  long: 82.10,   label: "DZ02 East Entrance"},
                         {lat: -54.60,  long: -19.00,  label: "DZ02 West Entrance"},
-                        {lat: -25.6,   long: -50,     label: "DZ03 West Entrance"},
+                        {lat: -25.6,   long: -47,     label: "DZ03 West Entrance"},
                         {lat: 28,      long: -60.8,   label: "DZ03 West Entrance"},
                         {lat: -13.3,   long: 81.5,    label: "DZ03 East Entrance"},
                         {lat: 28,      long: -60.8,   label: "DZ04 West Entrance"},
@@ -195,7 +195,10 @@
                         {lat: 62.3,     long: -19.4,     label: ""},
                     ]},
                     { type: "SubwayEnterances", locations: [
-                        // {lat: -12,  long: 0,    label: ""},
+                        {lat: 68.5,  long: -68.5,    label: "7th Ave Station Underground Entrance"},
+                        {lat: 72.6,  long: -65,    label: "7th Ave Station Underground Entrance"},
+                        {lat: 71.7,  long: -65.8,    label: "7th Ave Station Underground Entrance"},
+                        {lat: 71.66,  long: -42.5,    label: "7th Ave Station Underground Entrance"},
                     ]},
                     { type: "Enemy.Champions", locations: [
                         {lat: 17.5,  long: 19,     label: "<b>Named Bosses:</b><br/>Boomerang<br/>Hawkeye"},
