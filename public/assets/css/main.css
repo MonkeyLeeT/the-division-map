@@ -35,7 +35,7 @@ body {
     right: 0px;
     bottom: 20px;
     width: 400px;
-    z-index: 103900;
+    z-index: 2000;
     color: #fff;
     pointer-events: none;
 }
@@ -74,6 +74,10 @@ body {
 #map-sidebar #map-sidebar-buttons .btn{
     width: 36px;
     text-align: center;
+}
+#map-sidebar #map-sidebar-buttons.map-sidebar-force-right {
+    right: 20px;
+    transition: none;
 }
 
 
@@ -194,6 +198,10 @@ body {
     border-bottom: 2px #555 solid;
 }
 
+.navbar-fixed-top {
+    z-index: 3000;
+}
+
 .navbar-right {
     margin-right: 0px;
 }
@@ -203,31 +211,33 @@ body {
     color: #fff;
 }
 
-a.block-link, .navbar .navbar-nav > li > a.block-link {
-    background: rgba(255,255,255,0.2);
-    text-align: center;
-    padding: 4px 20px;
-    border-bottom: 2px transparent solid;
-    color: #fff;
-    text-decoration: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-a.block-link:hover, .navbar .navbar-nav > li > a.block-link:hover {
-    background: rgba(255,255,255,0.4);
-    cursor: pointer;
-}
-.navbar .navbar-nav > li > a.block-link {
-    margin-top: 10px;
-    margin-right: 10px;
-    width: 120px;
-}
-a.block-link.active, .navbar .navbar-nav > li > a.block-link.active {
-    border-bottom: 2px orange solid;
+@media (min-width: 768px) {
+    a.block-link, .navbar .navbar-nav > li > a.block-link {
+        background: rgba(255,255,255,0.2);
+        text-align: center;
+        padding: 4px 20px;
+        border-bottom: 2px transparent solid;
+        color: #fff;
+        text-decoration: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    a.block-link:hover, .navbar .navbar-nav > li > a.block-link:hover {
+        background: rgba(255,255,255,0.4);
+        cursor: pointer;
+    }
+    .navbar .navbar-nav > li > a.block-link {
+        margin-top: 10px;
+        margin-right: 10px;
+        width: 120px;
+    }
+    a.block-link.active, .navbar .navbar-nav > li > a.block-link.active {
+        border-bottom: 2px orange solid;
+    }
 }
 
 /* Modal */

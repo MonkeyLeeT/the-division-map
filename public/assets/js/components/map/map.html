@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div id="map-sidebar-buttons">
+        <div id="map-sidebar-buttons" ng-class="{'map-sidebar-force-right': (vm.menuCollapsed && !vm.initialized)}">
             <div class="btn-group-vertical">
                 <a class="btn btn-default" ng-click="vm.toggleMenu();"><i class="fa fa-bars"></i></a>
                 <a class="btn btn-default" tda-popover="Coming Soon" popover-position="left"><i class="fa fa-search"></i></a>

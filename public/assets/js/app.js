@@ -37,6 +37,7 @@
                     });
                     $rootScope.windowInnerWidth = window.innerWidth;
                 });
+
             }
         ]);
 
