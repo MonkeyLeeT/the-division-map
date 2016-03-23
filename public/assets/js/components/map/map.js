@@ -7,6 +7,7 @@
     MapController.$inject = ['$scope', '$rootScope', '$stateParams', '$timeout', 'GoogleURLShortener'];
     function MapController($scope, $rootScope, $stateParams, $timeout, GoogleURLShortener){
         var vm = this;
+        vm.menuCollapsed = false;
 
         vm.filters = [
             { enabled: true, markerType: 'Checkpoints', icon: "/assets/img/icons/checkpoint.png",       name: "Checkpoints" },
@@ -14,7 +15,7 @@
             { enabled: true, markerType: 'SafeHouses', icon: "/assets/img/icons/saferoom.png",         name: "Safe Houses" },
             { enabled: true, markerType: 'Extractions', icon: "/assets/img/icons/extraction.png",       name: "Extractions" },
             { enabled: true, markerType: 'Landmarks', icon: "/assets/img/icons/landmark-off.png",     name: "Landmarks" },
-            { enabled: true, markerType: null, icon: "/assets/img/icons/subway.png",           name: "Subway Enterances", comingSoon: true },
+            { enabled: true, markerType: null, icon: "/assets/img/icons/subway.png",           name: "Subway Entrances", comingSoon: true },
             { enabled: true, markerType: null, icon: "/assets/img/icons/containment-zone.png", name: "Containment Zone", comingSoon: true },
             { enabled: true, markerType: 'Lootable.DivisionTech', icon: "/assets/img/icons/division-tech.png",    name: "Division Tech" },
             { enabled: true, markerType: "Lootable.DarkzoneChests", icon: "/assets/img/icons/darkzone-chest.png",   name: "Darkzone Chests"},
@@ -34,6 +35,10 @@
                 if( filter.markerType !== null )
                     $rootScope.$broadcast('map-switch-filter', filter.markerType, filter.enabled);
             });
+        };
+
+        vm.toggleMenu = function(){
+            vm.menuCollapsed = !vm.menuCollapsed;
         };
 
         if($stateParams.path) {
