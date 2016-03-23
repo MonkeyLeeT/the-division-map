@@ -8,7 +8,9 @@
             restrict: 'A',
             link: function(scope, elem, attr) {
                 $(elem).on('click', function(){
-                    $(elem).closest('nav').find('button.navbar-toggle').click();
+                    if( scope.windowInnerWidth < 768 ) {
+                        $(elem).closest('nav').find('button.navbar-toggle').click();
+                    }
                 });
             }
         };
