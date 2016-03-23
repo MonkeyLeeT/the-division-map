@@ -12,15 +12,18 @@
             template: '<div></div>',
             link: function(scope, elem, attrs){
                 var DEBUG_MODE = false;
+                var MAX_ZOOM = 4;
+                var MIN_ZOOM = 2;
+                var current_zoom = 3;
 
-                var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 }); // Default
-                // var theDivisionMap = L.map(attrs.id, { center: [60, -10], zoom: 4 }); // Testing
+                var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: current_zoom, zoomControl: false }); // Default
+                // var theDivisionMap = L.map(attrs.id, { center: [60, -10], zoom: 4, zoomControl: false }); // Testing
 
                 L.control.mousePosition().addTo(theDivisionMap);
                 L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
                     attribution: '',
-                    maxZoom: 4,
-                    minZoom: 2,
+                    maxZoom: MAX_ZOOM,
+                    minZoom: MIN_ZOOM,
                     noWrap: true,
                     reuseTiles: true
                 }).addTo(theDivisionMap);
@@ -211,8 +214,8 @@
                         {lat: -77,     long: 52.7,       label: "<b>Named Bosses:</b>"},
                         {lat: -66.9,     long: -6.7,     label: "<b>(Subway) Named Bosses:</b>"},
                         {lat: -66.9,     long: 31.8,     label: "<b>Named Bosses:</b>"},
-                        {lat: -57.2,     long: 46.5,     label: "<b>Named Bosses:</b>"},
-                        {lat: -46.86,     long: -23,     label: "<b>Named Bosses:</b>"},
+                        {lat: -57.2,     long: 46.5,     label: "<b>Named Bosses:</b><br/>Hot Rod"},
+                        {lat: -46.86,     long: -23,     label: "<b>Named Bosses:</b><br/>Mazeroski"},
                         {lat: -41.7,     long: 27.9,     label: "<b>Named Bosses:</b>"},
                         {lat: -42,     long: 60.8,     label: "<b>Named Bosses:</b>"},
                         {lat: -13,     long: -25.3,     label: "<b>(Subway) Named Bosses:</b>"},
@@ -306,23 +309,31 @@
                 }
 
                 scope.$on('map-pathing-init', function(e, pointArray){
-                    console.log("init", pointArray);
                     _.each(pointArray, function(point){
                         plotPolyLine(point[0], point[1]);
                     });
                 });
 
+                scope.$on('map-increase-zoom-level', function(e, callback){
+                    if( current_zoom < MAX_ZOOM ) {
+                        current_zoom = current_zoom + 1;
+                        theDivisionMap.setZoom(current_zoom);
+                        callback(e, current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
+                    }
+                });
 
-                // var pointA = new L.LatLng(28.635308, 77.22496);
-                // var pointB = new L.LatLng(28.984461, 77.70641);
-                // var pointList = [pointA, pointB];
-                // var firstpolyline = new L.Polyline(pointList, {
-                //     color: 'yellow',
-                //     weight: 5,
-                //     opacity: 0.5,
-                //     smoothFactor: 1
-                // });
-                // firstpolyline.addTo(theDivisionMap);
+                scope.$on('map-decrease-zoom-level', function(e, callback){
+                    if( current_zoom > MIN_ZOOM ) {
+                        current_zoom = current_zoom - 1;
+                        theDivisionMap.setZoom(current_zoom);
+                        callback(e, current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
+                    }
+                });
+
+                theDivisionMap.on('zoomend', function(e){
+                    current_zoom = e.target._zoom;
+                    $rootScope.$broadcast('map-zoom-changed', current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
+                });
             }
         };
     }
