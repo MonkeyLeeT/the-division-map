@@ -102,24 +102,21 @@
         });
 
         vm.zoomDecrease = function(){
-            vm.zooming = true;
-            $rootScope.$broadcast('map-decrease-zoom-level', function(atMinimumZoom, atMaximumZoom){
-                vm.zoomAtMin = atMinimumZoom;
-                vm.zoomAtMax = atMaximumZoom;
-                vm.zooming = false;
-            });
+            $rootScope.$broadcast('map-decrease-zoom-level');
         };
         vm.zoomIncrease = function(){
-            vm.zooming = true;
-            $rootScope.$broadcast('map-increase-zoom-level', function(atMinimumZoom, atMaximumZoom){
+            $rootScope.$broadcast('map-increase-zoom-level');
+        };
+
+        $rootScope.$on('map-zoom-changed', function(e, atMinimumZoom, atMaximumZoom){
+            console.log("cahnged", atMinimumZoom, atMaximumZoom);
+            $scope.$apply(function(){
                 vm.zoomAtMin = atMinimumZoom;
                 vm.zoomAtMax = atMaximumZoom;
-                vm.zooming = false;
             });
-        };
+        });
 
         return vm;
     }
-
 
 }());

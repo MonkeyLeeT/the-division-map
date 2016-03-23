@@ -311,20 +311,23 @@
                     });
                 });
 
-                scope.$on('map-increase-zoom-level', function(e, callback){
+                scope.$on('map-increase-zoom-level', function(e){
                     if( current_zoom < MAX_ZOOM ) {
                         current_zoom = current_zoom + 1;
                         theDivisionMap.setZoom(current_zoom);
-                        callback(current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
                     }
                 });
 
-                scope.$on('map-decrease-zoom-level', function(e, callback){
+                scope.$on('map-decrease-zoom-level', function(e){
                     if( current_zoom > MIN_ZOOM ) {
                         current_zoom = current_zoom - 1;
                         theDivisionMap.setZoom(current_zoom);
                     }
-                    callback(current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
+                });
+
+                theDivisionMap.on('zoomend', function(e){
+                    current_zoom = e.target._zoom;
+                    $rootScope.$broadcast('map-zoom-changed', current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
                 });
             }
         };
