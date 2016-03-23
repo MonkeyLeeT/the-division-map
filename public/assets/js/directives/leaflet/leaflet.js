@@ -201,7 +201,7 @@
                         {lat: -11.5,  long: 30.5,  label: "<b>Named Bosses:</b><br/>Short Fuse"}, // Refueling Station
                         {lat: -12.8,  long: -4,    label: "<b>Named Bosses:</b><br/>Animal"}, // Bryant Park
                         {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"},
-                        {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady"},
+                        {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady<br/>Claxton"},
                         {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"},
                         {lat: -77,     long: 52.7,       label: "<b>Named Bosses:</b>"},
                         {lat: -66.9,     long: -6.7,     label: "<b>(Subway) Named Bosses:</b>"},
@@ -219,6 +219,8 @@
                         {lat: 70.0,     long: 10.7,     label: "<b>Named Bosses:</b>"},
                     ]}
                 ];
+
+                // Claxton = Cleaner Engineer
 
                 _.each(Markers, function(marker){
                     var icon = _.get(Icons, marker.type);
