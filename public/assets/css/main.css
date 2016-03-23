@@ -76,6 +76,13 @@ body {
     background-color: rgba(60,60,60,0.9);
 }
 
+#map-sidebar .input-group {
+    margin-bottom: 15px;
+}
+#map-sidebar .input-group .btn {
+    background-color: orange;
+}
+
 #map-sidebar #map-sidebar-footer {
     font-size: 12px;
     text-align: center;
@@ -92,6 +99,10 @@ body {
     top: 0;
     bottom: 0;
     right: 0;
+}
+
+#map-container.map-pathing #map-content.leaflet-container{
+    cursor: crosshair !important;
 }
 
 .leaflet-container {

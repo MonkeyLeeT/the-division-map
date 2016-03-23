@@ -1,4 +1,4 @@
-<div id="map-container">
+<div id="map-container" ng-class="{'map-pathing':vm.pathing}">
     <div id="map-sidebar">
         <div class="sidebar-component">
             <h4>Map Filters<small>(Click to Toggle)</small></h4>
@@ -11,8 +11,19 @@
         </div>
 
         <div class="sidebar-component">
-            <h4>Custom Map Paths<small>Coming Soon</small></h4>
-            <a class="block-link" style="display:block;">Create & Share Path</a>
+            <h4>Custom Map Paths</h4>
+            <!-- ng-show="vm.sharableUrl" -->
+
+            <div class="input-group" ng-show="vm.shareableUrl">
+                <input class="form-control" type="text" name="sharableUrl" ng-model="vm.shareableUrl">
+                <span class="input-group-btn">
+                    <button clipboard text="vm.shareableUrl" class="btn btn-secondary" type="button">Copy</button>
+                </span>
+            </div><!-- /input-group -->
+
+            <a class="block-link" style="display:block;" ng-click="vm.endPathing()" ng-show="vm.pathing">Finish Making Path</a>
+            <a class="block-link" style="display:block;" ng-click="vm.beginPathing()" ng-show="!vm.pathing && !vm.shareableUrl">Create & Share Path</a>
+            <a class="block-link" style="display:block;" ng-click="vm.beginPathing()" ng-show="!vm.pathing && vm.shareableUrl">Create Another Path</a>
         </div>
 
         <div class="sidebar-component">

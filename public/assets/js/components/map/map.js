@@ -4,8 +4,8 @@
     angular.module('theDivisionAgent')
         .controller('MapController', MapController);
 
-    MapController.$inject = ['$rootScope'];
-    function MapController($rootScope){
+    MapController.$inject = ['$scope', '$rootScope', '$stateParams', '$timeout', 'GoogleURLShortener'];
+    function MapController($scope, $rootScope, $stateParams, $timeout, GoogleURLShortener){
         var vm = this;
 
         vm.filters = [
@@ -35,6 +35,54 @@
                     $rootScope.$broadcast('map-switch-filter', filter.markerType, filter.enabled);
             });
         };
+
+        if($stateParams.path) {
+            getShareableURL($stateParams.path);
+            var points = $stateParams.path.split('_');
+            points = _.map(points, function(pt){
+                var latlng = pt.split(',');
+                return [+latlng[0], +latlng[1]];
+            });
+            $timeout(function(){
+                $rootScope.$broadcast('map-pathing-init', points);
+            }, 100);
+        }
+
+
+        vm.pathing = false;
+        vm.shareableUrl = null;
+        var pathArray = [];
+        vm.beginPathing = function(){
+            vm.pathing = true;
+            vm.shareableUrl = null;
+            $rootScope.$broadcast('map-pathing', true);
+        };
+        vm.endPathing = function(){
+            vm.pathing = false;
+            $rootScope.$broadcast('map-pathing', false);
+
+            var pathStr = "";
+            _.each(pathArray, function(point){
+                if(pathStr !== "")
+                    pathStr = pathStr + "_";
+                pathStr = pathStr + point[0] + "," + point[1];
+            });
+            getShareableURL(pathStr);
+            pathArray = [];
+        };
+
+        function getShareableURL(pathStr){
+            var longUrl = "http://thedivisionagent.com/map?path="+pathStr;
+            GoogleURLShortener.shorten(longUrl).then(function(shortUrl){
+                vm.shareableUrl = shortUrl;
+            }, function(){
+                vm.shareableUrl = "Error";
+            });
+        }
+
+        $scope.$on('map-pathing-update', function(event, newPathArray){
+            pathArray = newPathArray;
+        });
 
         return vm;
     }
