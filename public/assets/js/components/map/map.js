@@ -7,7 +7,16 @@
     MapController.$inject = ['$scope', '$rootScope', '$stateParams', '$timeout', 'GoogleURLShortener'];
     function MapController($scope, $rootScope, $stateParams, $timeout, GoogleURLShortener){
         var vm = this;
-        vm.menuCollapsed = false;
+        vm.initialized = false;
+        $timeout(function(){ vm.initialized = true; }, 100);
+        vm.menuCollapsed = ($rootScope.windowInnerWidth < 768);
+        $scope.$on('window-resize', function(e, newWidth, oldWidth){
+            if(newWidth < 768 && oldWidth >= 768){
+                vm.menuCollapsed = true;
+            } else if( newWidth >= 768 && oldWidth < 768 ) {
+                vm.menuCollapsed = false;
+            }
+        });
 
         vm.filters = [
             { enabled: true, markerType: 'Checkpoints', icon: "/assets/img/icons/checkpoint.png",       name: "Checkpoints" },

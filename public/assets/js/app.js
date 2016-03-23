@@ -27,8 +27,17 @@
             function ($rootScope, $state, $stateParams, GoogleURLShortener) {
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
+                $rootScope.windowInnerWidth = window.innerWidth;
 
                 GoogleURLShortener.init('AIzaSyDdlHtYINPk3rVMKAlrQHj_IFgKdQcvU-M');
+
+                $(window).resize(function(){
+                    console.log(window.innerWidth);
+                    $rootScope.$apply(function(){
+                        $rootScope.$broadcast('window-resize', window.innerWidth, $rootScope.windowInnerWidth);
+                    });
+                    $rootScope.windowInnerWidth = window.innerWidth;
+                });
             }
         ]);
 

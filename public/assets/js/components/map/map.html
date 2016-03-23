@@ -1,6 +1,6 @@
-<div id="map-container" ng-class="{'map-pathing':vm.pathing}">
+<div id="map-container" ng-class="{'map-pathing':vm.pathing}" ng-cloak>
     <div id="map-sidebar" ng-class="{collapsed: vm.menuCollapsed}">
-        <div id="map-sidebar-content">
+        <div id="map-sidebar-content" ng-show="!vm.menuCollapsed || vm.initialized">
             <div class="sidebar-component">
                 <h4>Map Filters</h4>
                 <div class="filter-item" ng-repeat="filter in vm.filters" ng-click="vm.toggleFilter(filter)" ng-class="{'disabled': !filter.enabled}">
