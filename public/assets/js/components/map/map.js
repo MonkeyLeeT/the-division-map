@@ -7,6 +7,9 @@
     MapController.$inject = ['$scope', '$rootScope', '$stateParams', '$timeout', 'GoogleURLShortener'];
     function MapController($scope, $rootScope, $stateParams, $timeout, GoogleURLShortener){
         var vm = this;
+        vm.zoomAtMin = false;
+        vm.zoomAtMax = false;
+
         vm.initialized = false;
         $timeout(function(){ vm.initialized = true; }, 100);
         vm.menuCollapsed = ($rootScope.windowInnerWidth < 768);
@@ -97,6 +100,23 @@
         $scope.$on('map-pathing-update', function(event, newPathArray){
             pathArray = newPathArray;
         });
+
+        vm.zoomDecrease = function(){
+            vm.zooming = true;
+            $rootScope.$broadcast('map-decrease-zoom-level', function(atMinimumZoom, atMaximumZoom){
+                vm.zoomAtMin = atMinimumZoom;
+                vm.zoomAtMax = atMaximumZoom;
+                vm.zooming = false;
+            });
+        };
+        vm.zoomIncrease = function(){
+            vm.zooming = true;
+            $rootScope.$broadcast('map-increase-zoom-level', function(atMinimumZoom, atMaximumZoom){
+                vm.zoomAtMin = atMinimumZoom;
+                vm.zoomAtMax = atMaximumZoom;
+                vm.zooming = false;
+            });
+        };
 
         return vm;
     }

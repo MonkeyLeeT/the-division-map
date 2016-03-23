@@ -12,15 +12,18 @@
             template: '<div></div>',
             link: function(scope, elem, attrs){
                 var DEBUG_MODE = false;
+                var MAX_ZOOM = 4;
+                var MIN_ZOOM = 2;
+                var current_zoom = 3;
 
-                var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: 3 }); // Default
-                // var theDivisionMap = L.map(attrs.id, { center: [60, -10], zoom: 4 }); // Testing
+                var theDivisionMap = L.map(attrs.id, { center: [-60, 40], zoom: current_zoom, zoomControl: false }); // Default
+                // var theDivisionMap = L.map(attrs.id, { center: [60, -10], zoom: 4, zoomControl: false }); // Testing
 
                 L.control.mousePosition().addTo(theDivisionMap);
                 L.tileLayer('/assets/img/map/{z}/{x}/{y}.jpg', {
                     attribution: '',
-                    maxZoom: 4,
-                    minZoom: 2,
+                    maxZoom: MAX_ZOOM,
+                    minZoom: MIN_ZOOM,
                     noWrap: true,
                     reuseTiles: true
                 }).addTo(theDivisionMap);
@@ -308,17 +311,21 @@
                     });
                 });
 
+                scope.$on('map-increase-zoom-level', function(e, callback){
+                    if( current_zoom < MAX_ZOOM ) {
+                        current_zoom = current_zoom + 1;
+                        theDivisionMap.setZoom(current_zoom);
+                        callback(current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
+                    }
+                });
 
-                // var pointA = new L.LatLng(28.635308, 77.22496);
-                // var pointB = new L.LatLng(28.984461, 77.70641);
-                // var pointList = [pointA, pointB];
-                // var firstpolyline = new L.Polyline(pointList, {
-                //     color: 'yellow',
-                //     weight: 5,
-                //     opacity: 0.5,
-                //     smoothFactor: 1
-                // });
-                // firstpolyline.addTo(theDivisionMap);
+                scope.$on('map-decrease-zoom-level', function(e, callback){
+                    if( current_zoom > MIN_ZOOM ) {
+                        current_zoom = current_zoom - 1;
+                        theDivisionMap.setZoom(current_zoom);
+                    }
+                    callback(current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
+                });
             }
         };
     }

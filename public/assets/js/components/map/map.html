@@ -37,7 +37,10 @@
             <div class="btn-group-vertical">
                 <a class="btn btn-default" ng-click="vm.toggleMenu();"><i class="fa fa-bars"></i></a>
                 <a class="btn btn-default" tda-popover="Coming Soon" popover-position="left"><i class="fa fa-search"></i></a>
-                <!-- popover-popup-delay="200" popover-placement="left" -->
+            </div>
+            <div class="btn-group-vertical">
+                <a class="btn btn-default" ng-click="vm.zoomIncrease();" ng-disabled="vm.zoomAtMax || vm.zooming"><i class="fa fa-plus"></i></a>
+                <a class="btn btn-default" ng-click="vm.zoomDecrease();" ng-disabled="vm.zoomAtMin || vm.zooming"><i class="fa fa-minus"></i></a>
             </div>
         </div>
     </div>
