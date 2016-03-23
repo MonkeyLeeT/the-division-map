@@ -185,6 +185,7 @@
                         {lat: -63.1,     long: -6.7,     label: "Back of Subway"},
                         {lat: -46.6,     long: -29.5,     label: "End of Road"},
                         {lat: 18.9,     long: 18,     label: "Back of truck"},
+                        {lat: -12.8,  long: -1.8,    label: ""},
                         {lat: 27,     long: 69,     label: ""},
                         {lat: -6,     long: 12.5,     label: "In Subway"},
                         {lat: -13.25,     long: -22.4,     label: "In Subway"},
@@ -199,7 +200,7 @@
                     { type: "Enemy.Champions", locations: [
                         {lat: 17.5,  long: 19,     label: "<b>Named Bosses:</b><br/>Boomerang<br/>Hawkeye"},
                         {lat: -11.5,  long: 30.5,  label: "<b>Named Bosses:</b><br/>Short Fuse"}, // Refueling Station
-                        {lat: -12.8,  long: -4,    label: "<b>Named Bosses:</b><br/>Animal"}, // Bryant Park
+                        {lat: -12.8,  long: -4,    label: "<b>Named Bosses:</b><br/>Animal<br/>Torch"}, // Bryant Park
                         {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"},
                         {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady<br/>Claxton"},
                         {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"},

@@ -1,39 +1,46 @@
-<div id="map-container" ng-class="{'map-pathing':vm.pathing}">
-    <div id="map-sidebar">
-        <div class="sidebar-component">
-            <h4>Map Filters<small>(Click to Toggle)</small></h4>
-            <div class="filter-item" ng-repeat="filter in vm.filters" ng-click="vm.toggleFilter(filter)" ng-class="{'disabled': !filter.enabled}">
-                <img ng-src="{{filter.icon}}"/>
-                <span ng-bind="filter.name"></span>
-                <small ng-show="filter.comingSoon">(Coming Soon)</small>
+<div id="map-container" ng-class="{'map-pathing':vm.pathing}" ng-cloak>
+    <div id="map-sidebar" ng-class="{collapsed: vm.menuCollapsed}">
+        <div id="map-sidebar-content" ng-show="!vm.menuCollapsed || vm.initialized">
+            <div class="sidebar-component">
+                <h4>Map Filters</h4>
+                <div class="filter-item" ng-repeat="filter in vm.filters" ng-click="vm.toggleFilter(filter)" ng-class="{'disabled': !filter.enabled}">
+                    <img ng-src="{{filter.icon}}"/>
+                    <span ng-bind="filter.name"></span>
+                    <small ng-show="filter.comingSoon">(Coming Soon)</small>
+                </div>
+                <br><a class="block-link" style="display:block;" ng-click="vm.toggleAllFilters()">Hide / Show All Filters</a>
             </div>
-            <br><a class="block-link" style="display:block;" ng-click="vm.toggleAllFilters()">Hide / Show All Filters</a>
-        </div>
 
-        <div class="sidebar-component">
-            <h4>Custom Map Paths</h4>
-            <!-- ng-show="vm.sharableUrl" -->
+            <div class="sidebar-component">
+                <h4>Custom Map Paths</h4>
+                <div class="input-group" ng-show="vm.shareableUrl">
+                    <input class="form-control" type="text" name="sharableUrl" ng-model="vm.shareableUrl">
+                    <span class="input-group-btn">
+                        <button clipboard text="vm.shareableUrl" class="btn btn-secondary" type="button">Copy</button>
+                    </span>
+                </div>
+                <a class="block-link" style="display:block;" ng-click="vm.endPathing()" ng-show="vm.pathing">Finish Making Path</a>
+                <a class="block-link" style="display:block;" ng-click="vm.beginPathing()" ng-show="!vm.pathing && !vm.shareableUrl">Create & Share Path</a>
+                <a class="block-link" style="display:block;" ng-click="vm.beginPathing()" ng-show="!vm.pathing && vm.shareableUrl">Create Another Path</a>
+            </div>
 
-            <div class="input-group" ng-show="vm.shareableUrl">
-                <input class="form-control" type="text" name="sharableUrl" ng-model="vm.shareableUrl">
-                <span class="input-group-btn">
-                    <button clipboard text="vm.shareableUrl" class="btn btn-secondary" type="button">Copy</button>
-                </span>
-            </div><!-- /input-group -->
-
-            <a class="block-link" style="display:block;" ng-click="vm.endPathing()" ng-show="vm.pathing">Finish Making Path</a>
-            <a class="block-link" style="display:block;" ng-click="vm.beginPathing()" ng-show="!vm.pathing && !vm.shareableUrl">Create & Share Path</a>
-            <a class="block-link" style="display:block;" ng-click="vm.beginPathing()" ng-show="!vm.pathing && vm.shareableUrl">Create Another Path</a>
-        </div>
-
-        <div class="sidebar-component">
-            <div id="map-sidebar-footer">
-                <div>
-                    Created By Michael Lynch (<a href="http://www.reddit.com/u/gamegenius86" target="_blank">/u/gamegenius86</a>)
-                    <br/><a href="https://www.paypal.me/yourfriend" target="">Buy me a beer!</a>
+            <div class="sidebar-component">
+                <div id="map-sidebar-footer">
+                    <div>
+                        Created By Michael Lynch (<a href="http://www.reddit.com/u/gamegenius86" target="_blank">/u/gamegenius86</a>)
+                        <br/><a href="https://www.paypal.me/yourfriend" target="">Buy me a beer!</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="map-sidebar-buttons">
+            <div class="btn-group-vertical">
+                <a class="btn btn-default" ng-click="vm.toggleMenu();"><i class="fa fa-bars"></i></a>
+                <a class="btn btn-default" tda-popover="Coming Soon" popover-position="left"><i class="fa fa-search"></i></a>
+                <!-- popover-popup-delay="200" popover-placement="left" -->
+            </div>
+        </div>
     </div>
+
     <leaflet id="map-content"></leaflet>
 </div>
