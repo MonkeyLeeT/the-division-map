@@ -32,7 +32,6 @@
                 GoogleURLShortener.init('AIzaSyDdlHtYINPk3rVMKAlrQHj_IFgKdQcvU-M');
 
                 $(window).resize(function(){
-                    console.log(window.innerWidth);
                     $rootScope.$apply(function(){
                         $rootScope.$broadcast('window-resize', window.innerWidth, $rootScope.windowInnerWidth);
                     });

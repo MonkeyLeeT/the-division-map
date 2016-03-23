@@ -305,23 +305,24 @@
                 }
 
                 scope.$on('map-pathing-init', function(e, pointArray){
-                    console.log("init", pointArray);
                     _.each(pointArray, function(point){
                         plotPolyLine(point[0], point[1]);
                     });
                 });
 
-                scope.$on('map-increase-zoom-level', function(e){
+                scope.$on('map-increase-zoom-level', function(e, callback){
                     if( current_zoom < MAX_ZOOM ) {
                         current_zoom = current_zoom + 1;
                         theDivisionMap.setZoom(current_zoom);
+                        callback(e, current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
                     }
                 });
 
-                scope.$on('map-decrease-zoom-level', function(e){
+                scope.$on('map-decrease-zoom-level', function(e, callback){
                     if( current_zoom > MIN_ZOOM ) {
                         current_zoom = current_zoom - 1;
                         theDivisionMap.setZoom(current_zoom);
+                        callback(e, current_zoom === MIN_ZOOM, current_zoom === MAX_ZOOM);
                     }
                 });
 

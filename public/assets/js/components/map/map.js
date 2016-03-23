@@ -102,19 +102,22 @@
         });
 
         vm.zoomDecrease = function(){
-            $rootScope.$broadcast('map-decrease-zoom-level');
+            $rootScope.$broadcast('map-decrease-zoom-level', updateZoomSettings);
         };
         vm.zoomIncrease = function(){
-            $rootScope.$broadcast('map-increase-zoom-level');
+            $rootScope.$broadcast('map-increase-zoom-level', updateZoomSettings);
         };
 
         $rootScope.$on('map-zoom-changed', function(e, atMinimumZoom, atMaximumZoom){
-            console.log("cahnged", atMinimumZoom, atMaximumZoom);
             $scope.$apply(function(){
-                vm.zoomAtMin = atMinimumZoom;
-                vm.zoomAtMax = atMaximumZoom;
+                updateZoomSettings(e, atMinimumZoom, atMaximumZoom);
             });
         });
+
+        function updateZoomSettings(e, atMinimumZoom, atMaximumZoom){
+            vm.zoomAtMin = atMinimumZoom;
+            vm.zoomAtMax = atMaximumZoom;
+        }
 
         return vm;
     }
