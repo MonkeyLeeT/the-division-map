@@ -105,10 +105,10 @@
                         {lat: -72.30,  long: -9.50,  label: "Subway Extraction"},
                         {lat: -51.60,  long: 12.10,  label: "Rooftop Extraction"},
                         {lat: -12.80,  long: -6.6,   label: "Bryant Park Extraction"},
-                        {lat: 33,      long: 52.4,   label: ""},
-                        {lat: 43.3,    long: -5.4,   label: ""},
-                        {lat: 52.4,    long: -52,    label: ""},
-                        {lat: 69.2,    long: -27.5,  label: ""},
+                        {lat: 33,      long: 52.4,   label: "Street Extraction"},
+                        {lat: 43.3,    long: -5.4,   label: "Street Extraction"},
+                        {lat: 52.4,    long: -52,    label: "Rooftop Extraction"},
+                        {lat: 69.2,    long: -27.5,  label: "Rooftop Extraction"},
                     ]},
                     { type: "SafeHouses", locations: [
                         {lat: -45.50,  long: 50.00,  label: "DZ02 Safe Room"},
@@ -191,8 +191,9 @@
                         {lat: -13.25,     long: -22.4,     label: "In Subway"},
                         {lat: 58.95,     long: 13.2,     label: ""},
                         {lat: 68.5,     long: 2.5,     label: ""},
-                        {lat: 62.4,     long: -77.6,     label: ""},
+                        {lat: 62.4,     long: -77.6,     label: "Behind the tent"},
                         {lat: 62.3,     long: -19.4,     label: ""},
+                        {lat: 72.4,     long: -49.6,     label: "Subway behind stairs"},
                     ]},
                     { type: "SubwayEnterances", locations: [
                         {lat: 68.5,  long: -68.5,    label: "7th Ave Station Underground Entrance"},
@@ -205,7 +206,7 @@
                         {lat: -11.5,  long: 30.5,  label: "<b>Named Bosses:</b><br/>Short Fuse"}, // Refueling Station
                         {lat: -12.8,  long: -4,    label: "<b>Named Bosses:</b><br/>Animal<br/>Torch"}, // Bryant Park
                         {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"},
-                        {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady<br/>Claxton"},
+                        {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Draxler<br/>O'Rourke"},
                         {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"},
                         {lat: -77,     long: 52.7,       label: "<b>Named Bosses:</b>"},
                         {lat: -66.9,     long: -6.7,     label: "<b>(Subway) Named Bosses:</b>"},
@@ -219,7 +220,7 @@
                         {lat: 39.2,     long: -23.2,     label: "<b>Named Bosses:</b>"},
                         {lat: 56.8,     long: 18.5,     label: "<b>Named Bosses:</b>"},
                         {lat: 62.3,     long: -17.5,     label: "<b>Named Bosses:</b>"},
-                        {lat: 72.15,     long: -59.3,     label: "<b>Named Bosses:</b>"},
+                        {lat: 72.15,     long: -59.3,     label: "<b>Named Bosses:</b><br/>Greenberg"},
                         {lat: 70.0,     long: 10.7,     label: "<b>Named Bosses:</b>"},
                     ]}
                 ];
