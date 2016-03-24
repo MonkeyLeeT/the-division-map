@@ -106,12 +106,12 @@
                     { type: "Extractions", locations: [
                         {lat: -70.00,  long: 65.00,  label: "Gas Station Extraction"},
                         {lat: -72.30,  long: -9.50,  label: "Subway Extraction"},
-                        {lat: -51.60,  long: 12.10,  label: "Rooftop Extraction"},
+                        {lat: -51.60,  long: 12.10,  label: "Garage Rooftop Extraction"},
                         {lat: -12.80,  long: -6.6,   label: "Bryant Park Extraction"},
-                        {lat: 33,      long: 52.4,   label: "Street Extraction"},
+                        {lat: 33,      long: 52.4,   label: "Garage Rooftop Extraction"},
                         {lat: 43.3,    long: -5.4,   label: "Street Extraction"},
                         {lat: 52.4,    long: -52,    label: "Rooftop Extraction"},
-                        {lat: 69.2,    long: -27.5,  label: "Rooftop Extraction"},
+                        {lat: 69.2,    long: -27.5,  label: "Hotel Rooftop Extraction"},
                     ]},
                     { type: "SafeHouses", locations: [
                         {lat: -45.50,  long: 50.00,  label: "DZ02 Safe Room"},
@@ -151,7 +151,7 @@
                         {lat: 32.5,   long: 25,  label: ""},
                         {lat: 34.5,   long: 34,  label: ""},
                         {lat: 44.9,   long: 15.8,  label: ""},
-                        {lat: 52,     long: 9,  label: ""},
+                        {lat: 50,     long: 9.9,  label: ""},
                         {lat: 44.5,   long: 0.5,  label: ""},
                         {lat: 42,     long: -2,  label: ""},
                         {lat: 37.5,   long: -41,     label: ""},
@@ -166,7 +166,7 @@
                         {lat: -70.3,     long: -15.2,     label: "By Bench"},
                         {lat: 50.5,     long: -31.1,     label: ""},
                         {lat: 55,     long: 3.8,     label: ""},
-                        {lat: 59.5,     long: 17.75,     label: ""},
+                        {lat: 59.2,     long: 20.3,     label: ""},
                         {lat: -13.6,     long: 79.4,     label: ""},
                         {lat: 70,     long: -7,     label: ""},
                         {lat: 70,     long: -25.3,     label: ""},
@@ -195,46 +195,61 @@
                         {lat: 58.95,     long: 13.2,     label: ""},
                         {lat: 68.5,     long: 2.5,     label: ""},
                         {lat: 62.4,     long: -77.6,     label: "Behind the tent"},
-                        {lat: 59,     long: -70,     label: "In a tent, on truck bed"},
+                        {lat: 59,     long: -70,     label: "In a tent, back of truck"},
                         {lat: 62.3,     long: -19.4,     label: ""},
                         {lat: 72.4,     long: -49.6,     label: "Subway behind stairs"},
                     ]},
                     { type: "SubwayEnterances", locations: [
-                        {lat: 68.5,  long: -68.5,    label: "7th Ave Station Underground Entrance"},
-                        {lat: 72.6,  long: -65,    label: "7th Ave Station Underground Entrance"},
-                        {lat: 71.7,  long: -65.8,    label: "7th Ave Station Underground Entrance"},
-                        {lat: 71.66,  long: -42.5,    label: "7th Ave Station Underground Entrance"},
-                        {lat: 61,  long: -26,    label: "Underground concourse and subway"},
-                        {lat: 56.5,  long: -27,    label: "Underground concourse and subway"},
-                        {lat: 54.25,  long: -26.7,    label: "Underground concourse and subway"},
-                        {lat: 60,  long: 8.8,    label: "Underground concourse"},
-                        {lat: 58,  long: 8.8,    label: "Underground concourse"},
-                        {lat: 60,  long: 12.5,    label: "Underground concourse access to The Pit"},
-                        {lat: 58,  long: 12.5,    label: "Underground concourse access to The Pit"},
-                        {lat: 47,  long: -28.2,    label: "Subway and underground concourse"},
+                        {lat: 68.5,  long: -68.5,    label: "<b>7th Ave station</b>"},
+                        {lat: 72.6,  long: -65,    label: "<b>7th Ave station</b>"},
+                        {lat: 71.7,  long: -65.8,    label: "<b>7th Ave station</b>"},
+                        {lat: 71.66,  long: -42.5,    label: "<b>7th Ave station</b>"},
+                        {lat: 61,  long: -26,    label: "<b>Concourse West entrance</b><br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 56.5,  long: -27,    label: "<b>Concourse West entrance</b><br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 55.2,  long:-17.1,    label: "<b>Concourse South entrance</b><br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 60,  long: 8.8,    label: "<b>Concourse East entrance</b><br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 58,  long: 8.8,    label: "<b>Concourse East entrance</b><br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 52,  long: 8.8,    label: "<b>Concourse East entrance</b><br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 60,  long: 12.5,    label: "<b>Concourse East entrance</b><br/>In the Pit<br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 58,  long: 12.5,    label: "<b>Concourse East entrance</b><br/>In the Pit<br/>Access to 47-50th St Rockefeller Center station"},
+                        {lat: 54.25,  long: -26.7,    label: "<b>47-50th St Rockefeller Center station</b><br/>Access to Concourse"},
+                        {lat: 47,  long: -28.2,    label: "<b>47-50th St Rockefeller Center station</b><br/>Access to Concourse"},
+                        {lat: 45,  long: -21.2,    label: "<b>47-50th St Rockefeller Center station</b><br/>Access to Concourse"},
+                        {lat: -2.5,  long: 23,    label: "<b>Public Library station</b><br/>Access to Bryant Park station"},
+                        {lat: -1.8,  long: -1.8,    label: "<b>Public Library station</b><br/>Access to Bryant Park station"},
+                        {lat: -1.8,  long: -17.5,    label: "<b>Bryant Park station</b><br/>Access to Public Library station"},
+                        {lat: -1.8,  long: -32.5,    label: "<b>Bryant Park station</b><br/>Access to Public Library station"},
+                        {lat: -11.5,  long: -38.5,    label: "<b>Bryant Park station</b><br/>Access to Public Library station"},
+                        {lat: -23.6,  long: -28.2,    label: "<b>Bryant Park station</b><br/>Access to Public Library station"},
+                        {lat: -23.6,  long: -17.2,    label: "<b>Bryant Park station</b><br/>Access to Public Library station"},
+                        {lat: -60.9,  long: 3.3,    label: "<b>33rd St station"},
+                        {lat: -63.0,  long: 2.1,    label: "<b>33rd St station"},
+                        {lat: -71.5,  long: -20.2,    label: "<b>33rd St station"},
+                        {lat: -71.8,  long: -14.9,    label: "<b>33rd St station"},
+                        {lat: -75.0,  long: -6.6,    label: "<b>33rd St station"},
                     ]},
                     { type: "Enemy.Champions", locations: [
-                        {lat: 17.5,  long: 19,     label: "<b>Named Bosses:</b><br/>Boomerang<br/>Hawkeye"},
+                        {lat: 17.5,  long: 19,     label: "<b>Named Bosses:</b><br/>Boomerang<br/>Hawkeye"}, // W 43rd St parking
                         {lat: -11.5,  long: 30.5,  label: "<b>Named Bosses:</b><br/>Short Fuse"}, // Refueling Station
                         {lat: -12.8,  long: -4,    label: "<b>Named Bosses:</b><br/>Animal<br/>Torch"}, // Bryant Park
-                        {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"},
+                        {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"}, // Public Library Station (Subway)
                         {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady<br/>Claxton<br/>Draxler<br/>O'Rourke"}, // Containment zone next to DZ06 West Entrance
-                        {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"},
+                        {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"}, // Containment zone East 45th St
                         {lat: -77,     long: 52.7,       label: "<b>Named Bosses:</b>"},
-                        {lat: -66.9,     long: -6.7,     label: "<b>(Subway) Named Bosses:</b>"},
-                        {lat: -66.9,     long: 31.8,     label: "<b>Named Bosses:</b>"},
-                        {lat: -57.2,     long: 46.5,     label: "<b>Named Bosses:</b><br/>Hot Rod"},
+                        {lat: -66.9,     long: -6.7,     label: "<b>(Subway) Named Bosses:</b>"}, // 33rd St station
+                        {lat: -66.9,     long: 31.8,     label: "<b>Named Bosses:</b>"}, // Blockade
+                        {lat: -57.2,     long: 46.5,     label: "<b>Named Bosses:</b><br/>Hot Rod"}, // 34th St DivisionTech
                         {lat: -46.86,     long: -23,     label: "<b>Named Bosses:</b><br/>Mazeroski"},
-                        {lat: -41.7,     long: 27.9,     label: "<b>Named Bosses:</b>"},
-                        {lat: -42,     long: 60.8,     label: "<b>Named Bosses:</b>"},
-                        {lat: -13,     long: -25.3,     label: "<b>(Subway) Named Bosses:</b>"},
+                        {lat: -41.7,     long: 27.9,     label: "<b>Named Bosses:</b>"}, // Kalkesse Sporting Store
+                        {lat: -42,     long: 60.8,     label: "<b>Named Bosses:</b>"}, // The Library
+                        {lat: -13,     long: -25.3,     label: "<b>(Subway) Named Bosses:</b>"}, // Bryant Park Station (Subway)
                         {lat: 30,     long: -50,     label: "<b>Named Bosses:</b>"},
                         {lat: 39.2,     long: -23.2,     label: "<b>Named Bosses:</b>"},
-                        {lat: 56.8,     long: 18.5,     label: "<b>Named Bosses:</b>"},
+                        {lat: 59,      long: 17.5,     label: "<b>Named Bosses:</b>"}, // The Pit
                         {lat: 62.3,     long: -24,     label: "<b>Named Bosses:</b><br/>Shadow<br/>Cpt.Bryant"}, // Mid Town Music
                         {lat: 72.15,     long: -59.3,     label: "<b>(Subway) Named Bosses:</b><br/>Greenberg"}, // 7th Ave Station (Subway)
                         {lat: 70.0,     long: 0,     label: "<b>Named Bosses:</b><br/>Coveleski"}, // Q Building
-                        {lat: 45,     long: -28.2,     label: "<b>(Subway) Named Bosses:</b><br/>"}, // 7th Ave Station (Subway)
+                        {lat: 45,     long: -28.2,     label: "<b>(Subway) Named Bosses:</b><br/>"}, // 47-50th St Rockefeller Center station (Subway)
                     ]}
                 ];
 
