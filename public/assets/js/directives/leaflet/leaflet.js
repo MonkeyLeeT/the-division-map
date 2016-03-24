@@ -261,7 +261,7 @@
                             {lat: -63,     long: 34,     label: "On Scaffolding"},
                             {lat: -60.3,   long: 49.6,   label: "Second Floor"},
                             {lat: -57.0,   long: 49.6,   label: "Second Floor"},
-                            {lat: -58.7,   long: 49.5,   label: "Middle of the building on 3rd Floor"}, //moved to the right, was overlapping the landmark icon
+                            {lat: -58.7,   long: 49.6,   label: "Middle of the building on 3rd Floor"}, //moved to the right, was overlapping the landmark icon
                             {lat: -53.5,   long: 77.0,   label: ""},
                             {lat: -51.5,   long: 77.0,   label: ""},
                             {lat: -53.5,   long: 74.0,   label: ""},
