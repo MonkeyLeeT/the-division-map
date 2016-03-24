@@ -261,7 +261,7 @@
                             {lat: -63,     long: 34,     label: "On Scaffolding"},
                             {lat: -60.3,   long: 49.6,   label: "Second Floor"},
                             {lat: -57.0,   long: 49.6,   label: "Second Floor"},
-                            {lat: -58.7,   long: 48.0,   label: "Third Floor"},
+                            {lat: -58.7,   long: 49.5,   label: "Middle of the building on 3rd Floor"}, //moved to the right, was overlapping the landmark icon
                             {lat: -53.5,   long: 77.0,   label: ""},
                             {lat: -51.5,   long: 77.0,   label: ""},
                             {lat: -53.5,   long: 74.0,   label: ""},
@@ -373,13 +373,13 @@
                             {lat: -6,      long: 11,     label: "<b>(Subway) Named Bosses:</b><br/>McGrady<br/>Hundly<br/>O'Rourke"}, // Public Library Station (Subway)
                             {lat: 62.3,    long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady<br/>Claxton<br/>Draxler<br/>O'Rourke<br/>Hundly"}, // Containment zone next to DZ06 West Entrance
                             {lat: 27.3,    long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg<br/>Claxton"}, // Containment zone East 45th St
-                            {lat: -77,     long: 52.7,   label: "<b>Named Bosses:</b><br/>Bonnie<br/>Dropkick"}, // South Spawn (no landmark)
+                            {lat: -77,     long: 52.7,   label: "<b>Named Bosses:</b><br/>Bonnie<br/>Dropkick<br/>Cowboy"}, // South Spawn (no landmark)
                             {lat: -66.9,   long: -6.7,   label: "<b>(Subway) Named Bosses:</b><br/>Claxton<br/>Hardaway"}, // 33rd St station
-                            {lat: -66.9,   long: 31.8,   label: "<b>Named Bosses:</b><br/>Buckshot<br/>Scrapper"}, // Blockade
-                            {lat: -57.2,   long: 46.5,   label: "<b>Named Bosses:</b><br/>Hot Rod<br/>Baz"}, // 34th St DivisionTech
-                            {lat: -46.86,  long: -23,    label: "<b>Named Bosses:</b><br/>Mazeroski"},
+                            {lat: -66.9,   long: 31.8,   label: "<b>Named Bosses:</b><br/>Buckshot<br/>Scrapper<br/>Dropkick"}, // Blockade
+                            {lat: -57.2,   long: 46.5,   label: "<b>Named Bosses:</b><br/>Hot Rod<br/>Baz<br/>Animal"}, // 34th St Construction Site
+                            {lat: -46.86,  long: -23,    label: "<b>Named Bosses:</b><br/>Mazeroski<br/>???"},
                             {lat: -41.7,   long: 27.9,   label: "<b>Named Bosses:</b><br/>Zeke<br/>Animal"}, // Kalkesse Sporting Store
-                            {lat: -42,     long: 60.8,   label: "<b>Named Bosses:</b><br/>Cannibal<br/>Boomerang"}, // The Library
+                            {lat: -42,     long: 60.8,   label: "<b>Named Bosses:</b><br/>Cannibal<br/>Boomerang<br/>Animal"}, // The Library
                             {lat: -13,     long: -25.3,  label: "<b>(Subway) Named Bosses:</b>"}, // Bryant Park Station (Subway)
                             {lat: 30,      long: -50,    label: "<b>Named Bosses:</b>"},
                             {lat: 39.2,    long: -23.2,  label: "<b>Named Bosses:</b>"},
