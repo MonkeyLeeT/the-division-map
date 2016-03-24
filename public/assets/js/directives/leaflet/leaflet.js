@@ -195,6 +195,7 @@
                         {lat: 58.95,     long: 13.2,     label: ""},
                         {lat: 68.5,     long: 2.5,     label: ""},
                         {lat: 62.4,     long: -77.6,     label: "Behind the tent"},
+                        {lat: 59,     long: -70,     label: "In a tent, on truck bed"},
                         {lat: 62.3,     long: -19.4,     label: ""},
                         {lat: 72.4,     long: -49.6,     label: "Subway behind stairs"},
                     ]},
@@ -203,13 +204,21 @@
                         {lat: 72.6,  long: -65,    label: "7th Ave Station Underground Entrance"},
                         {lat: 71.7,  long: -65.8,    label: "7th Ave Station Underground Entrance"},
                         {lat: 71.66,  long: -42.5,    label: "7th Ave Station Underground Entrance"},
+                        {lat: 61,  long: -26,    label: "Underground concourse and subway"},
+                        {lat: 56.5,  long: -27,    label: "Underground concourse and subway"},
+                        {lat: 54.25,  long: -26.7,    label: "Underground concourse and subway"},
+                        {lat: 60,  long: 8.8,    label: "Underground concourse"},
+                        {lat: 58,  long: 8.8,    label: "Underground concourse"},
+                        {lat: 60,  long: 12.5,    label: "Underground concourse access to The Pit"},
+                        {lat: 58,  long: 12.5,    label: "Underground concourse access to The Pit"},
+                        {lat: 47,  long: -28.2,    label: "Subway and underground concourse"},
                     ]},
                     { type: "Enemy.Champions", locations: [
                         {lat: 17.5,  long: 19,     label: "<b>Named Bosses:</b><br/>Boomerang<br/>Hawkeye"},
                         {lat: -11.5,  long: 30.5,  label: "<b>Named Bosses:</b><br/>Short Fuse"}, // Refueling Station
                         {lat: -12.8,  long: -4,    label: "<b>Named Bosses:</b><br/>Animal<br/>Torch"}, // Bryant Park
                         {lat: -6,  long: 11,       label: "<b>(Subway) Named Bosses:</b><br/>McGrady"},
-                        {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Draxler<br/>O'Rourke"},
+                        {lat: 62.3,  long: -70.3,  label: "<b>Named Bosses:</b><br/>Hardaway<br/>McGrady<br/>Claxton<br/>Draxler<br/>O'Rourke"}, // Containment zone next to DZ06 West Entrance
                         {lat: 27.3,  long: 59.5,   label: "<b>Named Bosses:</b><br/>Hardaway<br/>Greenberg"},
                         {lat: -77,     long: 52.7,       label: "<b>Named Bosses:</b>"},
                         {lat: -66.9,     long: -6.7,     label: "<b>(Subway) Named Bosses:</b>"},
@@ -222,9 +231,10 @@
                         {lat: 30,     long: -50,     label: "<b>Named Bosses:</b>"},
                         {lat: 39.2,     long: -23.2,     label: "<b>Named Bosses:</b>"},
                         {lat: 56.8,     long: 18.5,     label: "<b>Named Bosses:</b>"},
-                        {lat: 62.3,     long: -17.5,     label: "<b>Named Bosses:</b>"},
-                        {lat: 72.15,     long: -59.3,     label: "<b>Named Bosses:</b><br/>Greenberg"},
-                        {lat: 70.0,     long: 10.7,     label: "<b>Named Bosses:</b>"},
+                        {lat: 62.3,     long: -24,     label: "<b>Named Bosses:</b><br/>Shadow<br/>Cpt.Bryant"}, // Mid Town Music
+                        {lat: 72.15,     long: -59.3,     label: "<b>(Subway) Named Bosses:</b><br/>Greenberg"}, // 7th Ave Station (Subway)
+                        {lat: 70.0,     long: 0,     label: "<b>Named Bosses:</b><br/>Coveleski"}, // Q Building
+                        {lat: 45,     long: -28.2,     label: "<b>(Subway) Named Bosses:</b><br/>"}, // 7th Ave Station (Subway)
                     ]}
                 ];
 
