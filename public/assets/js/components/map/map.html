@@ -6,7 +6,6 @@
                 <div class="filter-item" ng-repeat="filter in vm.filters" ng-click="vm.toggleFilter(filter)" ng-class="{'disabled': !filter.enabled}">
                     <img ng-src="{{filter.icon}}"/>
                     <span ng-bind="filter.name"></span>
-                    <small ng-show="filter.comingSoon">(Coming Soon)</small>
                 </div>
                 <br><a class="block-link" style="display:block;" ng-click="vm.toggleAllFilters()">Hide / Show All Filters</a>
             </div>

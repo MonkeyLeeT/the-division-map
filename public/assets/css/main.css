@@ -97,7 +97,16 @@ body {
     color: orange;
 }
 
-#map-sidebar .filter-item { line-height: 24px; cursor: pointer; }
+#map-sidebar .filter-item {
+    line-height: 24px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+ }
 #map-sidebar .filter-item img { width: 24px; height: 24px; }
 #map-sidebar .filter-item small { color: #999; font-style: italic; }
 
