@@ -48,7 +48,10 @@
                     var icon = _.get(Icons, marker.type);
                     _.each(marker.locations, function(loc){
                         loc.marker = L.marker([loc.lat, loc.long], {icon: icon});
-                        if(loc.label !== ""){
+                        if(DEBUG_MODE) {
+                            loc.label = "("+loc.id+"): "+loc.label;
+                        }
+                        if(loc.label !== "") {
                             loc.marker.bindPopup(loc.label);
                             loc.marker.on('mouseover', function (e) {
                                 this.openPopup();
